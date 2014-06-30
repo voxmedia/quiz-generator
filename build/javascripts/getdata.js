@@ -9,8 +9,7 @@ function init() {
 function readData(data, tabletop) { 
 	console.log(data);
 	input = data;
-	quiz();
 	embed();
-	buildQuiz();
+  $('body').append('<script src="/javascripts/quiz.js" type="text/javascript"><\/script>');
 }
 ;

@@ -13,7 +13,7 @@
     
     <link href="/stylesheets/quiz-generator.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/quiz.css" rel="stylesheet" type="text/css" />
 
-    <script src="/javascripts/jquery.min.js" type="text/javascript"></script><script src="/javascripts/tabletop.js" type="text/javascript"></script><script src="/javascripts/getdata.js" type="text/javascript"></script><script src="/javascripts/quiz.js" type="text/javascript"></script>
+    <script src="/javascripts/jquery.min.js" type="text/javascript"></script><script src="/javascripts/tabletop.js" type="text/javascript"></script><script src="/javascripts/getdata.js" type="text/javascript"></script>
   </head>
   
   <body id="top" class="index index" style="background-color: #f1f3f2;">
@@ -61,7 +61,7 @@
   }
 
   function embed() {
-    $("#embedcode").html("&lt;div class='quiz-container'></div>&lt;script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'>&lt;/script>&lt;script type='text/javascript'>var input = " + JSON.stringify(input) + "; var pubStylesheet = '" + pubStylesheet + "';&lt;/script>&lt;script src='https://s3-us-west-2.amazonaws.com/quiz-generator/quiz.js'>&lt;/script>");
+    $("#embedcode").html("&lt;div class='quiz-container'></div>&lt;script type='text/javascript'>window.jQuery || document.write('&lt;script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'><\/script>');&lt;/script>&lt;script type='text/javascript'>var input = " + JSON.stringify(input) + "; var pubStylesheet = '" + pubStylesheet + "';&lt;/script>&lt;script src='https://s3-us-west-2.amazonaws.com/quiz-generator/quiz.js'>&lt;/script>");
   }
 
   function buildquiz(){

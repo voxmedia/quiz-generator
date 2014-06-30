@@ -35,7 +35,7 @@ ol.answers > li:hover {
   background-color: #ebebec;
 }
 
-.hintbutton {
+.qq-button {
   background-color: #FF0052;
   color: #ffffff;
   font-family: "Gotham SSm A","Gotham SSm B",Arial,sans-serif;
@@ -44,7 +44,7 @@ ol.answers > li:hover {
   width:180px;
 }
 
-.hintbutton:hover {
+.qq-button:hover {
   background-color: #3f1e45 !important;
 }
 

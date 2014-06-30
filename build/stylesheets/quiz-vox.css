@@ -54,13 +54,13 @@ ol.answers > li:hover {
   background-color: #f1f3f2;
 }
 
-.hintbutton {
+.qq-button {
   background-color: #f1f3f2;
   color: #4c4e4d;
   font-family: Alright Sans,sans-serif;
 }
 
-.hintbutton:hover {
+.qq-button:hover {
   background-color: #bfd1df !important;
 }
 
