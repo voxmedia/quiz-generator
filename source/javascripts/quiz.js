@@ -1,4 +1,4 @@
-var QQ = QQ || {}
+var QQ = QQ || {};
 
 var QQ = (function ($) {
   // attach json object 'var input' with quiz data
@@ -13,7 +13,7 @@ var QQ = (function ($) {
   var google = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' style='height: 2em;'><circle cx='8' cy='8' r='8' class='shape-1'></circle><path fill='#fff' d='M8.6 4.3l.6-.4c.1-.1.1-.1.1-.2s-.1-.1-.2-.1h-2.7c-.3 0-.6.1-.9.2-1 .3-1.6 1.1-1.6 2 0 1.2.9 2.1 2.2 2.1-.1 0-.1.1-.1.2 0 .2 0 .4.1.5-1.1 0-2.2.6-2.6 1.4-.1.2-.2.4-.2.7 0 .2.1.4.2.6.3.5.8.8 1.5 1 .4.1.8.1 1.2.1.4 0 .7 0 1.1-.1 1-.3 1.7-1.1 1.7-2 0-.8-.2-1.3-1-1.8-.3-.2-.6-.6-.6-.7 0-.2 0-.3.4-.6.5-.4.8-1 .8-1.5s-.2-1-.4-1.3h.2c.1 0 .1 0 .2-.1zm-3.3 1.3c-.1-.4 0-.8.3-1.1.1-.2.3-.2.5-.2.6 0 1.1.7 1.2 1.4.1.4 0 .8-.3 1.1-.1.2-.3.3-.5.3-.6 0-1.1-.7-1.2-1.5zm2.6 4.6v.2c0 .8-.6 1.2-1.7 1.2-.9 0-1.5-.5-1.5-1.2 0-.6.8-1.2 1.7-1.2.2 0 .4 0 .6.1l.2.1c.4.4.7.5.7.8z' class='shape-2'></path><path fill='#fff' d='M13.3 7.8c0 .1-.1.2-.2.2h-1.5v1.5c0 .1-.1.2-.2.2h-.4c-.1 0-.2-.1-.2-.2v-1.5h-1.6c-.1 0-.2-.1-.2-.2v-.4c0-.1.1-.2.2-.2h1.5v-1.5c0-.1.1-.2.2-.2h.4c.1 0 .2.1.2.2v1.5h1.5c.1 0 .2.1.2.2v.4z' class='shape-3'></path></svg>";
   
 
-  var quiz = function () {
+  var addCSS = function () {
     $('head').append('<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/quiz-generator/quiz.css" type="text/css" />');
     $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
     buildQuiz();
@@ -26,11 +26,12 @@ var QQ = (function ($) {
       "<li id='option-b'>" + input[currentQuestion].b + "</li>" +
       "<li id='option-c'>" + input[currentQuestion].c + "</li>" +
       "<li id='option-d'>" + input[currentQuestion].d + "</li></ol>" +
-      "<button id='hint' class='hintbutton' onclick='showHint()'>Need a hint?</button>" +
+      "<button id='hint' class='hintbutton'>Need a hint?</button>" +
       "<button id='submit' class='hintbutton'>Submit answer</button>" +
       "<div class='answer'></div>");
     selectAnswer();
     submitAnswer();
+    $('#hint').on('click', showHint);
   }
 
   var displayProgress = function () {
@@ -69,32 +70,30 @@ var QQ = (function ($) {
       }
       if (currentQuestion != (input.length-1)) {
         $(".answer").append("<button id='next' class='hintbutton'>Next</button>");
+        $('#next').on('click', nextQuestion);
       } else {
         $(".answer").append("<button id='score' class='hintbutton'>See Final Score</button>");
-        
+        $('#score').on('click', finalScore);
       }
     }
   }
 
   var nextQuestion = function () {
     currentQuestion++;
-    buildQuiz();  
+    buildQuiz();
   }
-  $('#next').on('click', nextQuestion);
 
   var link = document.URL
   var finalScore = function () {
     $(".quiz-container").html("<div class='scorecard'><p>You correctly answered</p><p>" + score + "&nbsp;out of&nbsp;" + input.length + "</p><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=I scored " + score + "/" + input.length + " on this quiz " + link + " via @voxproduct' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div><p>Challenge your friends!</p></div>");
   }
-  $('#score').on('click', finalScore);
 
-  return {
-    quiz : quiz, 
-    buildQuiz : buildQuiz,
-    nextQuestion : nextQuestion
+  var init = function () {
+    addCSS();
+    buildQuiz();
+  }
+
+  window.onload = function () {
+    init();
   }
 })(jQuery);
-
-document.addEventListener('DOMContentLoaded', function(){
-  QQ.quiz();
-});
