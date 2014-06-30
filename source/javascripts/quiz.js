@@ -1,6 +1,4 @@
-var QQ = QQ || {};
-
-var QQ = (function ($) {
+(function ($) {
   // attach json object 'var input' with quiz data
   var ans, qnumber;
   var score = 0;
@@ -88,12 +86,9 @@ var QQ = (function ($) {
     $(".quiz-container").html("<div class='scorecard'><p>You correctly answered</p><p>" + score + "&nbsp;out of&nbsp;" + input.length + "</p><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=I scored " + score + "/" + input.length + " on this quiz " + link + " via @voxproduct' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div><p>Challenge your friends!</p></div>");
   }
 
-  var init = function () {
-    addCSS();
-    buildQuiz();
-  }
+  addCSS();
 
   window.onload = function () {
-    init();
+    buildQuiz();
   }
 })(jQuery);
