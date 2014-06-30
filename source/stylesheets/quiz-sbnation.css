@@ -37,14 +37,14 @@ ol.answers > li:hover {
   background-color: #eeeded;
 }
 
-.hintbutton {
+.qq-button {
   background-color: #000000;
   color: #ffffff;
   font-family: ff-din-web-condensed,helvetica,sans-serif;
   font-weight: 800;
 }
 
-.hintbutton:hover {
+.qq-button:hover {
   background-color: #c52327 !important;
 }
 

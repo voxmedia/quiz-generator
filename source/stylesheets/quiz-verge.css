@@ -42,7 +42,7 @@ ol.answers > li:hover {
   background-color: #f4f0ee;
 }
 
-.hintbutton {
+.qq-button {
   background-color: #000000;
   color: #ffffff;
   font-family: ff-din-web-condensed,helvetica,sans-serif;
@@ -50,7 +50,7 @@ ol.answers > li:hover {
   font-size: 1.02em;
 }
 
-.hintbutton:hover {
+.qq-button:hover {
   background-color: #fb4834 !important;
 }
 
