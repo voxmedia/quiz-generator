@@ -53,6 +53,8 @@
 
 # data.Sheet1['question']
 
+page "/demo.html", :layout => "test"
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
