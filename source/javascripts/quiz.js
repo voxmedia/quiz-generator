@@ -26,8 +26,8 @@
       "<li id='option-b'>" + input[currentQuestion].b + "</li>" +
       "<li id='option-c'>" + input[currentQuestion].c + "</li>" +
       "<li id='option-d'>" + input[currentQuestion].d + "</li></ol>" +
-      "<button id='hint' class='hintbutton'>Need a hint?</button>" +
-      "<button id='submit' class='hintbutton'>Submit answer</button>" +
+      "<button id='hint' class='qq-button'>Need a hint?</button>" +
+      "<button id='submit' class='qq-button'>Submit answer</button>" +
       "<div class='answer'></div>");
     selectAnswer();
     $('#hint').on('click', showHint);
@@ -67,10 +67,10 @@
         $(".answer").html("<p>Sorry!</p><p> " + input[currentQuestion].incorrect + "&nbsp;The correct answer is " + input[currentQuestion].answer + ".</p>");
       }
       if (currentQuestion != (input.length-1)) {
-        $(".answer").append("<button id='next' class='hintbutton'>Next</button>");
+        $(".answer").append("<button id='next' class='qq-button'>Next</button>");
         $('#next').on('click', nextQuestion);
       } else {
-        $(".answer").append("<button id='score' class='hintbutton'>See Final Score</button>");
+        $(".answer").append("<button id='score' class='qq-button'>See Final Score</button>");
         $('#score').on('click', finalScore);
       }
     }
