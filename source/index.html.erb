@@ -1,0 +1,53 @@
+<div class="voxh"><a href="http://www.voxmedia.com/"><img src="images/voxlogo.png" style="width:40px;"></a></div>
+<div class="headline">
+  <h1><img src="images/qq.png">&nbsp;&nbsp;Quiz Quartet</h1>
+</div>
+<div class="containing">
+  <h4> Write your quiz</h4>
+  <p>Use <a href="https://drive.google.com/previewtemplate?id=0AlMgrVuuAI0MdGl6NngwMGYtX3RHQjlic0xzNnBjUGc&mode=public" target="_new">this Google Spreadsheet template</a> to write your quiz.</p>
+  <p>Once you're done editing, publish the spreadsheet to the web. Under the <b>"File"</b> menu, select <b>"Publish to the Web."</b> Click <b>"Start Publishing"</b> and copy the URL to build the quiz.</p>
+  <center><p style="font-size:0.8em">Want to test it out? Try this spreadsheet:<br><textarea style="overflow:auto;" rows="1">https://docs.google.com/spreadsheet/pub?key=0AlMgrVuuAI0MdG0tQnVraEM3dkJlSEdvMkxCTUkwVXc&output=html</textarea></p></center>
+
+<h5> Enter your spreadsheet</h5>
+<p>Copy and paste your spreadsheet's URL here: <input type="text" id="url"></p>
+
+<h5> Select your vertical</h5>
+<form>
+  <input type="radio" name="pub" value="vox">&nbsp;Vox&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="pub" value="sbnation">&nbsp;SB Nation&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="pub" value="verge">&nbsp;The Verge&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="pub" value="polygon">&nbsp;Polygon
+</form>
+<div class="embed" style="margin-top: 30px; margin-bottom: 60px;">
+  <h5>Generate, copy and paste this code into Chorus</h5>
+  <center><p><button id="build" onclick="buildquiz()">Generate your quiz</button><p>
+  <p><textarea type="text" name="embedcode" id="embedcode" style="height: 150px; overflow:auto;"></textarea></center></p>
+</div>
+</html>
+<h4>Preview</h4>
+</div>
+
+<div class="pv">
+<div class="quiz-container"></div>
+</div>
+
+<script type="text/javascript">
+  var key;
+  var pubStylesheet = 'https://s3-us-west-2.amazonaws.com/quiz-generator/quiz-vox.css';
+  var pub;
+
+  function getStylesheet() {
+    pub = $('input[name="pub"]:checked').val();
+    pubStylesheet = "https://s3-us-west-2.amazonaws.com/quiz-generator/quiz-" + pub + ".css";
+  }
+
+  function embed() {
+    $("#embedcode").html("&lt;div class='quiz-container'></div>&lt;script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'>&lt;/script>&lt;script type='text/javascript'>var input = " + JSON.stringify(input) + "; var pubStylesheet = '" + pubStylesheet + "';&lt;/script>&lt;script src='https://s3-us-west-2.amazonaws.com/quiz-generator/quiz.js'>&lt;/script>");
+  }
+
+  function buildquiz(){
+    url = $('#url').val();
+    init();
+    getStylesheet();
+  }
+</script>
