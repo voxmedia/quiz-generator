@@ -1,6 +1,6 @@
 .quiz-container {
   border-top:8px solid #fb4834;
-  font-family:helvetica,sans-serif;
+  font-family: Helvetica, sans-serif;
   padding-top: 20px;
 }
 
@@ -8,11 +8,8 @@
   display:none;
 }
 
-.qhead {
-}
-
 .question {
-  font-family: ff-din-web-condensed,helvetica,sans-serif;
+  font-family: ff-din-web-condensed, Helvetica, sans-serif;
   font-weight: 800;
   color: #000000;
   font-size: 1.5em;
@@ -88,6 +85,6 @@ ol.answers > li:hover {
   background-color: #6d6e70;
 }
 
-#score {
+.check-score {
   width: 40%;
 }
