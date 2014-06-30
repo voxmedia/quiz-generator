@@ -45,7 +45,7 @@
     $("li").click(function() {
       $(".selected").removeClass("selected");
       $(this).addClass("selected");
-      $("#submit").addClass("submityo").fadeIn();
+      $("#submit").addClass("submit-hightlight").fadeIn();
     });
   }
 
