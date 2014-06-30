@@ -23,7 +23,7 @@ body {
 }
 
 // Positioning Vox logo in upper right corner
-.voxh {
+.vox-logo {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -34,7 +34,7 @@ body {
 }
 
 // Quiz Quartet text and icon positioning
-.headline h1 {
+.quiz-quartet h1 {
   font-family: $font-stack;
   font-weight: $bold;
   font-size: 4em;
@@ -50,7 +50,7 @@ body {
 }
 
 // Container for quiz generator
-.containing {
+.container {
   position: relative;
   z-index: 10!important;
   background-color: #ffffff;
@@ -161,7 +161,7 @@ button {
 }
 
 // Preview of generated quiz
-.pv {
+.quiz-preview {
   background-color: transparent;
   z-index: 6!important;
   padding: 75px 0px 30px 0px;
