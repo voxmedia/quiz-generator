@@ -1,6 +1,6 @@
 var QQ = QQ || {}
 
-QQ = (function ($) {
+var QQ = (function ($) {
   // attach json object 'var input' with quiz data
   var ans, qnumber;
   var score = 0;
@@ -16,6 +16,7 @@ QQ = (function ($) {
   var quiz = function () {
     $('head').append('<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/quiz-generator/quiz.css" type="text/css" />');
     $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
+    buildQuiz();
   }
 
   var buildQuiz = function () {
@@ -67,9 +68,9 @@ QQ = (function ($) {
         $(".answer").html("<p>Sorry!</p><p> " + input[currentQuestion].incorrect + "&nbsp;The correct answer is " + input[currentQuestion].answer + ".</p>");
       }
       if (currentQuestion != (input.length-1)) {
-        $(".answer").append("<button id='next' class='hintbutton' onclick='nextQuestion()'>Next</button>");
+        $(".answer").append("<button id='next' class='hintbutton'>Next</button>");
       } else {
-        $(".answer").append("<button id='score' class='hintbutton' onclick='finalScore()'>See Final Score</button>");
+        $(".answer").append("<button id='score' class='hintbutton'>See Final Score</button>");
         
       }
     }
@@ -79,23 +80,21 @@ QQ = (function ($) {
     currentQuestion++;
     buildQuiz();  
   }
+  $('#next').on('click', nextQuestion);
 
   var link = document.URL
   var finalScore = function () {
     $(".quiz-container").html("<div class='scorecard'><p>You correctly answered</p><p>" + score + "&nbsp;out of&nbsp;" + input.length + "</p><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=I scored " + score + "/" + input.length + " on this quiz " + link + " via @voxproduct' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div><p>Challenge your friends!</p></div>");
   }
+  $('#score').on('click', finalScore);
 
   return {
-    quiz : quiz,
+    quiz : quiz, 
     buildQuiz : buildQuiz,
     nextQuestion : nextQuestion
   }
 })(jQuery);
 
-window.onload = function () {
-  QQ.quiz();
-}
-
 document.addEventListener('DOMContentLoaded', function(){
-  QQ.buildQuiz();
+  QQ.quiz();
 });
