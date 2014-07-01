@@ -13,7 +13,7 @@
   
   // attach quiz and vertical-specific stylesheets
   var addCSS = function () {
-    $('head').append('<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/quiz-generator/quiz.css" type="text/css" />');
+    $('head').append('<link rel="stylesheet" href="http://cdn0.vox-cdn.com/features/quiz-generator/quiz.css" type="text/css" />');
     // $('head').append('<link rel="stylesheet" href="stylesheets/quiz.css" type="text/css" />');
     $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
     buildQuiz();
