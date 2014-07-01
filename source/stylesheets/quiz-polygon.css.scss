@@ -1,5 +1,5 @@
 $font-stack: 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
-$purple: #3f1e45;
+$purple: #3F1E45;
 
 // Container for generated quiz
 .quiz-container {
@@ -24,12 +24,12 @@ ol.answers > li {
   &:before {
     font-family: $font-stack;
     font-style: italic;
-    color: #ffffff;
+    color: #FFFFFF;
     background-color: $purple;
     width: 30px;
   }
   &:hover {
-    background-color: #ebebec;
+    background-color: #EBEBEC;
   }
 }
 
@@ -38,7 +38,7 @@ ol.answers > li {
   font-family: $font-stack;
   font-style: italic;
   font-weight: 800;
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: #FF0052;
   width: 180px;
   &:hover {
@@ -48,12 +48,12 @@ ol.answers > li {
 
 // Highlights selected answer
 .selected {
-  background-color: #dfdfe0;
+  background-color: #DFDFE0;
 }
 
 // Submit button color when an answer is selected
 .submit-highlight {
-  background-color: #cd1949;
+  background-color: #CD1949;
 }
 
 // Checking selected answer
@@ -64,10 +64,19 @@ ol.answers > li {
 // Social media buttons on final scorecard
 #social-media ul li a svg {
   &:hover {
-    fill: #ed1c55;
+    fill: #ED1C55;
   }
   path:hover {
-    fill: #ffffff;
+    fill: #FFFFFF;
   }
   fill: $purple;
+}
+
+// Hyperlinks
+.answer a {
+  color: #FF0052;
+  text-decoration: none;
+  &:hover {
+    color: $purple;
+  }
 }

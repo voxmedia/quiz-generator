@@ -1,5 +1,5 @@
 $font-stack: ff-din-web-condensed, Helvetica, sans-serif;
-$bright-red: #fb4834;
+$bright-red: #FB4834;
 
 // Container for generated quiz
 .quiz-container {
@@ -31,14 +31,14 @@ ol.answers > li {
     font-style: italic;
     font-weight: 800;
     font-size: 1em;
-    color: #ffffff;
+    color: #FFFFFF;
     line-height: 0.8em;
     background-color: $bright-red;
     width: 30px;
     padding: 8px 0px 5px 0px;
   }
   &:hover {
-    background-color: #f4f0ee;
+    background-color: #F4F0EE;
   }
 }
 
@@ -47,7 +47,7 @@ ol.answers > li {
   font-family: $font-stack;
   font-weight: 400;
   font-size: 1.02em;
-  color: #ffffff;
+  color: #FFFFFF;
   background-color: #000000;
   &:hover {
     background-color: $bright-red !important;
@@ -56,12 +56,12 @@ ol.answers > li {
 
 // Highlights selected answer
 .selected {
-  background-color: #dfdfe0;
+  background-color: #DFDFE0;
 }
 
 // Submit button color when an answer is selected
 .submit-highlight {
-  background-color: #6d6e70;
+  background-color: #6D6E70;
 }
 
 // Checking selected answer
@@ -82,11 +82,20 @@ ol.answers > li {
     fill: $bright-red;
   }
   path:hover {
-    fill: #ffffff;
+    fill: #FFFFFF;
   }
 }
 
 // Style for scorecard's final score
 .scorecard p:nth-child(2) {
   color: $bright-red;
+}
+
+// Hyperlinks
+.answer a {
+  color: $bright-red;
+  text-decoration: none;
+  &:hover {
+    color: #000000;
+  }
 }

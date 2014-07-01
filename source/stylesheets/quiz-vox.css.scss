@@ -1,10 +1,11 @@
 $font-stack: 'Alight Sans', sans-serif;
 $question-font: 'Balto', sans-serif;
+$blue: #bfd1df;
 
 // Container for generated quiz
 .quiz-container {
   font-family: $font-stack;
-  color: #4c4e4d;
+  color: #4C4E4D;
   padding-top: 20px;
 }
 
@@ -12,7 +13,7 @@ $question-font: 'Balto', sans-serif;
 .question {
   font-family: $question-font;
   font-weight: bold;
-  color: #4c4e4d;
+  color: #4C4E4D;
   font-size: 1.5em;
   margin: 0% auto;
   margin-bottom: 30px;
@@ -28,7 +29,7 @@ ol.answers > li {
     font-family: $question-font;
     font-weight: bold;
     color: #4c4e4d;
-    background-color: #bfd1df;
+    background-color: $blue;
     width: 25px;
     padding: 2px 0px;
   }
@@ -43,7 +44,7 @@ ol.answers > li {
   color: #4c4e4d;
   background-color: #f1f3f2;
   &:hover {
-    background-color: #bfd1df !important;
+    background-color: $blue !important;
   }
 }
 
@@ -94,4 +95,13 @@ ol.answers > li {
 // Style for scorecard's final score
 .scorecard p:nth-child(2) {
   font-family: $question-font;
+}
+
+// Hyperlinks
+.answer a {
+  color: $blue;
+  text-decoration: none;
+  &:hover {
+    color: #000000;
+  }
 }

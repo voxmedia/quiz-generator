@@ -1,6 +1,6 @@
 $font-stack: 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
 $question-font: 'Sentinel SSm A', 'Sentinel SSm B', Georgia, serif;
-$red: #c52327;
+$red: #C52327;
 
 // Container for generated quiz
 .quiz-container {
@@ -27,19 +27,19 @@ ol.answers > li {
   &:before {
     font-family: $question-font;
     font-weight: bold;
-    color: #ffffff;
+    color: #FFFFFF;
     background-color: $red;
     width: 30px;
   }
   &:hover {
-    background-color: #eeeded;
+    background-color: #EEEDED;
   }
 }
 
 // Buttons
 .qq-button {
   font-family: ff-din-web-condensed, Helvetica, sans-serif;
-  color: #ffffff;
+  color: #FFFFFF;
   font-weight: 800;
   background-color: #000000;
   &:hover {
@@ -49,7 +49,7 @@ ol.answers > li {
 
 // Submit button color when an answer is selected
 .submit-highlight {
-  background-color: #6d6e70;
+  background-color: #6D6E70;
 }
 
 // Checking selected answer
@@ -67,6 +67,15 @@ ol.answers > li {
     fill: $red;
   }
   path:hover {
-    fill: #ffffff;
+    fill: #FFFFFF;
+  }
+}
+
+// Hyperlinks
+.answer a {
+  color: $red;
+  text-decoration: none;
+  &:hover {
+    color: #000000;
   }
 }
