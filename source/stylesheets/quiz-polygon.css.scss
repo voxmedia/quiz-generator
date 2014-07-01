@@ -1,18 +1,16 @@
 $font-stack: 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
-$question-font: 'Sentinel SSm A', 'Sentinel SSm B', Georgia, serif;
-$red: #c52327;
+$purple: #3f1e45;
 
 // Container for generated quiz
 .quiz-container {
   font-family: $font-stack;
-  text-align: center;
-  border-top: 7px solid $red;
-  padding-top: 20px;
+  border-top: 3px solid #000000;
 }
 
 // Text for each question
 .question {
-  font-family: $question-font;
+  font-family: $font-stack;
+  font-weight: bold;
   color: #000000;
   font-size: 1.5em;
   margin: 0% auto;
@@ -22,51 +20,54 @@ $red: #c52327;
 // Answer options for each question
 ol.answers > li {
   font-family: $font-stack;
-  font-size: 0.9em;
 
   &:before {
-    font-family: $question-font;
-    font-weight: bold;
+    font-family: $font-stack;
+    font-style: italic;
     color: #ffffff;
-    background-color: $red;
+    background-color: $purple;
     width: 30px;
   }
   &:hover {
-    background-color: #eeeded;
+    background-color: #ebebec;
   }
 }
 
 // Buttons
 .qq-button {
-  font-family: ff-din-web-condensed, Helvetica, sans-serif;
-  color: #ffffff;
+  font-family: $font-stack;
+  font-style: italic;
   font-weight: 800;
-  background-color: #000000;
+  color: #ffffff;
+  background-color: #FF0052;
+  width: 180px;
   &:hover {
-    background-color: $red !important;
+    background-color: $purple !important;
   }
+}
+
+// Highlights selected answer
+.selected {
+  background-color: #dfdfe0;
 }
 
 // Submit button color when an answer is selected
 .submit-highlight {
-  background-color: #6d6e70;
+  background-color: #cd1949;
 }
 
 // Checking selected answer
-.answer p {
+.answer p:first-child {
   font-family: $font-stack;
-  font-size: 0.9em;
-  &:first-child {
-    font-family: $question-font;
-  }
 }
 
 // Social media buttons on final scorecard
 #social-media ul li a svg {
   &:hover {
-    fill: $red;
+    fill: #ed1c55;
   }
   path:hover {
     fill: #ffffff;
   }
+  fill: $purple;
 }

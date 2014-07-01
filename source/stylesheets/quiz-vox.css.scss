@@ -1,13 +1,16 @@
+$font-stack: 'Alight Sans', sans-serif;
+$question-font: 'Balto', sans-serif;
+
 // Container for generated quiz
 .quiz-container {
-  font-family: Alright Sans, sans-serif;
+  font-family: $font-stack;
   color: #4c4e4d;
   padding-top: 20px;
 }
 
 // Text for each question
 .question {
-  font-family: Balto, sans-serif;
+  font-family: $question-font;
   font-weight: bold;
   color: #4c4e4d;
   font-size: 1.5em;
@@ -18,11 +21,11 @@
 
 // Answer options for each question
 ol.answers > li {
-  font-family: Alright Sans, sans-serif;
+  font-family: $font-stack;
   padding: 0px 0px 0px 10px;
 
   &:before {
-    font-family: Balto, sans-serif;
+    font-family: $question-font;
     font-weight: bold;
     color: #4c4e4d;
     background-color: #bfd1df;
@@ -36,7 +39,7 @@ ol.answers > li {
 
 // Buttons
 .qq-button {
-  font-family: Alright Sans,sans-serif;
+  font-family: $font-stack;
   color: #4c4e4d;
   background-color: #f1f3f2;
   &:hover {
@@ -44,7 +47,7 @@ ol.answers > li {
   }
 }
 
-// Highights selected answer
+// Highlights selected answer
 .selected {
   background-color: #f7f7f7;
 }
@@ -54,9 +57,9 @@ ol.answers > li {
   background-color: #dfdfe0;
 }
 
-// Style for answer-checking after a question is answered
+// Checking selected answer
 .answer p:first-child {
-  font-family: Balto, sans-serif;
+  font-family: $question-font;
   border-top: 1px solid #4c4e4d !important;
 }
 
@@ -90,5 +93,5 @@ ol.answers > li {
 
 // Style for scorecard's final score
 .scorecard p:nth-child(2) {
-  font-family: Balto, sans-serif;
+  font-family: $question-font;
 }
