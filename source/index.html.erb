@@ -33,13 +33,13 @@
 
 <script type="text/javascript">
   var key;
-  var pubStylesheet = 'http://cdn0.vox-cdn.com//features/quiz-generator/quiz-vox.css';
+  var pubStylesheet = 'https://s3-us-west-2.amazonaws.com/quiz-generator/quiz-vox.css';
   // var pubStylesheet = 'stylesheets/quiz-vox.css';
   var pub;
 
   function getStylesheet() {
     pub = $('input[name="pub"]:checked').val();
-    pubStylesheet = "http://cdn0.vox-cdn.com/features/quiz-generator/quiz-" + pub + ".css";
+    pubStylesheet = "https://s3-us-west-2.amazonaws.com/quiz-generator/quiz-" + pub + ".css";
     // pubStylesheet = "/stylesheets/quiz-" + pub + ".css";
   }
 
