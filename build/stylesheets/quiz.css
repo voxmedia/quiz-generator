@@ -1,0 +1,145 @@
+/* line 11, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.quiz-container {
+  text-align: center;
+  background-color: #ffffff;
+  margin: 0% auto;
+  width: 100%;
+  max-width: 770px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 30px;
+  padding-top: 20px; }
+
+/* line 24, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.question {
+  font-size: 1.17em;
+  max-width: 80%;
+  margin: 0% auto;
+  margin-top: 20px !important; }
+
+/* line 32, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.progress {
+  font-size: 11px;
+  text-align: right;
+  position: relative;
+  right: 30px; }
+
+/* line 40, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+ol.answers {
+  font-size: 0.9em;
+  list-style-type: none;
+  cursor: pointer;
+  counter-reset: li-counter;
+  position: relative;
+  margin: 0px auto;
+  width: 80%;
+  max-width: 500px;
+  margin-bottom: 50px;
+  padding: 0px; }
+  /* line 51, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+  ol.answers > li {
+    -o-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    text-align: left;
+    margin: 20px 0px; }
+    /* line 52, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+    ol.answers > li:before {
+      font-size: 1em;
+      text-align: center;
+      cursor: pointer;
+      content: counter(li-counter);
+      counter-increment: li-counter;
+      display: inline-block;
+      width: 30px;
+      margin-right: 10px;
+      padding: 5px 0px 5px 0px; }
+
+/* line 70, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.qq-button {
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: .9em;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+  cursor: pointer;
+  width: 160px;
+  margin: 2px 5px;
+  padding: .7em .7em .6em;
+  border: 0; }
+
+/* line 84, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.selected {
+  background-color: #dfdfe0; }
+
+/* line 89, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.score {
+  font-size: .8em;
+  float: right;
+  padding-right: 7%; }
+
+/* line 96, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+#social-media ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px; }
+  /* line 102, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+  #social-media ul li {
+    display: inline-block; }
+    /* line 104, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+    #social-media ul li a {
+      text-decoration: none; }
+      /* line 106, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+      #social-media ul li a svg {
+        height: 2em;
+        width: 2em;
+        margin-right: 1em; }
+
+/* line 116, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.answer {
+  margin: 0% auto;
+  width: 90%;
+  max-width: 550px;
+  margin-top: 20px !important; }
+  /* line 122, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+  .answer p:first-child {
+    font-weight: bold;
+    font-size: 1.2em;
+    display: inline-block;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    border-top: 1px solid #000000; }
+  /* line 131, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+  .answer p:nth-child(2) {
+    margin: 0% auto;
+    display: block;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 20px; }
+
+/* line 142, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.answer > p {
+  margin: 0px 0px 20px 0px !important; }
+
+/* line 148, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.scorecard p:nth-child(1) {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1em !important;
+  display: inline-block;
+  margin-top: 45px; }
+/* line 155, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz.css.scss */
+.scorecard p:nth-child(2) {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 40px;
+  margin-top: 5px; }

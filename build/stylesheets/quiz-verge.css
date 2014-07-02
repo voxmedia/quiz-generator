@@ -1,0 +1,86 @@
+/* line 5, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.quiz-container {
+  font-family: Helvetica, sans-serif;
+  border-top: 8px solid #fb4834;
+  padding-top: 20px; }
+
+/* line 12, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.question {
+  font-family: ff-din-web-condensed, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 1.5em;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0% auto;
+  max-width: 80%;
+  margin-bottom: 20px; }
+
+/* line 25, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+ol.answers > li {
+  font-family: Helvetica, sans-serif;
+  font-size: 0.9em; }
+  /* line 29, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+  ol.answers > li:before {
+    font-family: ff-din-web-condensed, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1em;
+    color: #FFFFFF;
+    line-height: 0.8em;
+    background-color: #fb4834;
+    width: 30px;
+    padding: 8px 0px 5px 0px; }
+  /* line 40, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+  ol.answers > li:hover {
+    background-color: #F4F0EE; }
+
+/* line 46, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.qq-button {
+  font-family: ff-din-web-condensed, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.02em;
+  color: #FFFFFF;
+  background-color: #000000; }
+  /* line 52, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+  .qq-button:hover {
+    background-color: #fb4834 !important; }
+
+/* line 58, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.selected {
+  background-color: #DFDFE0; }
+
+/* line 63, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.submit-highlight {
+  background-color: #6D6E70; }
+
+/* line 68, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.answer p:first-child {
+  font-family: ff-din-web-condensed, Helvetica, sans-serif;
+  text-transform: uppercase; }
+
+/* line 74, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.check-score {
+  width: 35%; }
+
+/* line 79, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+#social-media ul li a svg {
+  fill: #000000; }
+  /* line 81, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+  #social-media ul li a svg:hover {
+    fill: #fb4834; }
+  /* line 84, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+  #social-media ul li a svg path:hover {
+    fill: #FFFFFF; }
+
+/* line 90, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.scorecard p:nth-child(2) {
+  color: #fb4834; }
+
+/* line 95, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+.answer a {
+  color: #fb4834;
+  text-decoration: none; }
+  /* line 98, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-verge.css.scss */
+  .answer a:hover {
+    color: #000000; }

@@ -11,7 +11,7 @@
 # Congif
 ###
 
-page "/demo.html", :layout => "test"
+page "/demo.html", :layout => "demo"
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
