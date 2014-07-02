@@ -1,4 +1,4 @@
-###
+  ###
 # Compass
 ###
 
@@ -12,6 +12,7 @@
 ###
 
 page "/demo.html", :layout => "demo"
+page "/flowchart.html", :layout => "flowchart"
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'

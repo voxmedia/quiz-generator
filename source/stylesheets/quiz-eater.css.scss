@@ -1,0 +1,86 @@
+$font-stack: 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
+$question-font: 'Sentinel SSm A', 'Sentinel SSm B', Georgia, serif;
+$purple: #6d0028;
+
+// Container for generated quiz
+.quiz-container {
+  font-family: $font-stack;
+  text-align: center;
+  border-top: 7px solid $purple;
+  padding-top: 20px;
+}
+
+// Text for each question
+.question {
+  font-family: $question-font;
+  color: #000000;
+  font-size: 1.5em;
+  margin: 0% auto;
+  margin-bottom: 20px;
+}
+
+// Answer options for each question
+ol.answers > li {
+  font-family: $font-stack;
+  font-size: 0.9em;
+
+  &:before {
+    font-family: $question-font;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: $purple;
+    width: 30px;
+  }
+  &:hover {
+    background-color: #EEEDED;
+  }
+}
+
+// Buttons
+.qq-button {
+  font-family: ff-din-web-condensed, Helvetica, sans-serif;
+  color: #FFFFFF;
+  font-weight: 800;
+  background-color: $purple;
+  &:hover {
+    background-color: $purple !important;
+  }
+}
+
+// Submit button color when an answer is selected
+.submit-highlight {
+  background-color: #6D6E70;
+}
+
+// Highlights selected answer
+.selected {
+  background-color: #ffe8e1;
+}
+
+// Checking selected answer
+.answer p {
+  font-family: $font-stack;
+  font-size: 0.9em;
+  &:first-child {
+    font-family: $question-font;
+  }
+}
+
+// Social media buttons on final scorecard
+#social-media ul li a svg {
+  &:hover {
+    fill: $purple;
+  }
+  path:hover {
+    fill: #FFFFFF;
+  }
+}
+
+// Hyperlinks
+.answer a {
+  color: $purple;
+  text-decoration: none;
+  &:hover {
+    color: #000000;
+  }
+}
