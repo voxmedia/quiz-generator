@@ -1,5 +1,5 @@
-$font-stack: 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
-$question-font: 'Sentinel SSm A', 'Sentinel SSm B', Georgia, serif;
+$font-stack: 'Whitney Regular', Arial, sans-serif;
+$question-font: 'Glober', Georgia, serif;
 $purple: #6d0028;
 
 // Container for generated quiz
@@ -17,12 +17,13 @@ $purple: #6d0028;
   font-size: 1.5em;
   margin: 0% auto;
   margin-bottom: 20px;
+  font-weight: bolder;
 }
 
 // Answer options for each question
 ol.answers > li {
   font-family: $font-stack;
-  font-size: 0.9em;
+  font-size: 1em;
 
   &:before {
     font-family: $question-font;
@@ -40,7 +41,7 @@ ol.answers > li {
 .qq-button {
   font-family: ff-din-web-condensed, Helvetica, sans-serif;
   color: #FFFFFF;
-  font-weight: 800;
+  font-weight: 400;
   background-color: $purple;
   &:hover {
     background-color: $purple !important;
@@ -49,7 +50,7 @@ ol.answers > li {
 
 // Submit button color when an answer is selected
 .submit-highlight {
-  background-color: #6D6E70;
+  background-color: #e60000;
 }
 
 // Highlights selected answer
@@ -57,7 +58,7 @@ ol.answers > li {
   background-color: #ffe8e1;
 }
 
-// Checking selected answer
+// Checking selected anhswer
 .answer p {
   font-family: $font-stack;
   font-size: 0.9em;

@@ -1,0 +1,71 @@
+/* line 6, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+.quiz-container {
+  font-family: "Whitney Regular", Arial, sans-serif;
+  text-align: center;
+  border-top: 7px solid #6d0028;
+  padding-top: 20px; }
+
+/* line 14, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+.question {
+  font-family: "Glober", Georgia, serif;
+  color: #000000;
+  font-size: 1.5em;
+  margin: 0% auto;
+  margin-bottom: 20px;
+  font-weight: bolder; }
+
+/* line 24, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+ol.answers > li {
+  font-family: "Whitney Regular", Arial, sans-serif;
+  font-size: 1em; }
+  /* line 28, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+  ol.answers > li:before {
+    font-family: "Glober", Georgia, serif;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #6d0028;
+    width: 30px; }
+  /* line 35, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+  ol.answers > li:hover {
+    background-color: #EEEDED; }
+
+/* line 41, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+.qq-button {
+  font-family: ff-din-web-condensed, Helvetica, sans-serif;
+  color: #FFFFFF;
+  font-weight: 400;
+  background-color: #6d0028; }
+  /* line 46, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+  .qq-button:hover {
+    background-color: #6d0028 !important; }
+
+/* line 52, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+.submit-highlight {
+  background-color: #e60000; }
+
+/* line 57, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+.selected {
+  background-color: #ffe8e1; }
+
+/* line 62, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+.answer p {
+  font-family: "Whitney Regular", Arial, sans-serif;
+  font-size: 0.9em; }
+  /* line 65, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+  .answer p:first-child {
+    font-family: "Glober", Georgia, serif; }
+
+/* line 72, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+#social-media ul li a svg:hover {
+  fill: #6d0028; }
+/* line 75, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+#social-media ul li a svg path:hover {
+  fill: #FFFFFF; }
+
+/* line 81, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+.answer a {
+  color: #6d0028;
+  text-decoration: none; }
+  /* line 84, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-eater.css.scss */
+  .answer a:hover {
+    color: #000000; }
