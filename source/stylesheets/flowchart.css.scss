@@ -6,19 +6,20 @@ body p, h1, h2, button {
   text-align: center;
 }
 
-.flowchart {
+.chart_wrapper {
   max-width: 900px;
   width: 90%;
   margin: 0 auto;
+  text-align: center;
+  font-family: $font-stack;
 }
 
 .choices {
   text-align: center;
 }
 
-.choices button {
+button.flowchart-button {
   font-size: .9em;
-  text-transform: uppercase;
   line-height: 1;
   display: inline-block;
   cursor: pointer;

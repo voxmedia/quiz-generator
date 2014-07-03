@@ -44,7 +44,7 @@ function writeOptions(currentRow) {
   if (connectsTo[0] == 'End') {
     lastQuestion();
   } else {
-    $('.question-' + questionNumber).append("<button class='question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
+    $('.question-' + questionNumber).append("<button class='flowchart-button question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='flowchart-button question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
     $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0]); });
     $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1]); });
     questionNumber ++;
