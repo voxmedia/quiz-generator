@@ -31,11 +31,19 @@ button.flowchart-button {
 }
 
 button.flowchart-button:hover {
-  background-color: #ffcc20;
+  background-color: #f37b21;
 }
 
 .question p {
   font-family: $question-font;
   font-size: 1.2em;
   font-weight: 800;
+}
+
+.last {
+  margin: 0 auto;
+  margin-top: 2em;
+  width: 50%;
+  min-width: 400px;
+  border-top: 1px solid #ececec;
 }

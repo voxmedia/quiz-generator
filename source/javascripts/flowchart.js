@@ -64,8 +64,8 @@ function lastQuestion() {
       break;
     }
   }
-  $('.question-' + questionNumber).append('<div>' + input[theEndRow].text + '</div><br/><button class="flowchart-button restart">Restart</button></div>');
-  $('.restart').on('click', restart);
+  $('.question-' + questionNumber).append('<div class="last"><p>' + input[theEndRow].text + '</p><br/><button class="flowchart-button restart">Restart</button></div>');
+  $('.restart').on('click', restart); 
 }
 
 $(document).ready(function(){
