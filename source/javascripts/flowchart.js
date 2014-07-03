@@ -15,7 +15,8 @@ function readData(data, tabletop) {
   buildQuestion(slug);
 }
 
-function getSlug (newslug) {
+function getSlug (newslug, selection) {
+  $(selection).addClass('selected');
   $('button').attr('disabled', true);
   slug = newslug;
   buildQuestion(slug);
@@ -32,7 +33,11 @@ function compareSlug(slug) {
 
 function buildQuestion(slug) {
   compareSlug(slug);
-  $(".chart_wrapper").append("<div class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
+  if (currentRow == 0) {
+    $(".chart_wrapper").append("<div class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
+  } else {
+    $(".chart_wrapper").append("<div style='display:none;' class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
+  }
   writeOptions(currentRow);
 }
 
@@ -42,13 +47,16 @@ function writeOptions(currentRow) {
   connectsTo = row.connectsto.split(separator);
   console.log(connectsTo[0], connectsTo[1]);
   if (connectsTo[0] == 'End') {
+    $('.question-' + questionNumber).fadeIn(400);
     lastQuestion();
   } else {
     $('.question-' + questionNumber).append("<button class='flowchart-button question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='flowchart-button question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
-    $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0]); });
-    $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1]); });
-    questionNumber ++;
+    $('.question-' + questionNumber).fadeIn(400);
+    $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0], this); });
+    $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1], this); });
+    questionNumber++;
   }
+
 }
 
 function restart() {

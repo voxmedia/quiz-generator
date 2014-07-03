@@ -18,6 +18,10 @@ body p, h1, h2, button {
   text-align: center;
 }
 
+.selected {
+  background-color: #ffcc20 !important;
+}
+
 button.flowchart-button {
   font-size: .9em;
   cursor: pointer; 
