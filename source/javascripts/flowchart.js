@@ -16,6 +16,7 @@ function readData(data, tabletop) {
 }
 
 function getSlug (newslug) {
+  $(this).disabled = true;
   slug = newslug;
   buildQuestion(slug);
 }
@@ -38,18 +39,27 @@ function buildQuestion(slug) {
 function writeOptions(currentRow) {
   var row = input[currentRow];
   var connects_labels = row.connectstext.split(separator);
-  $('.question-' + questionNumber).append("<button class='question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
-  nextQuestion(currentRow);
-}
-
-function nextQuestion(currentRow) {
-  var row = input[currentRow];
   connectsTo = row.connectsto.split(separator);
   console.log(connectsTo[0], connectsTo[1]);
-  $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0]); });
-  $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1]); });
-  questionNumber ++;
-} 
+  if (connectsTo[0] == 'End') {
+    lastQuestion();
+  } else {
+    $('.question-' + questionNumber).append("<button class='question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
+    $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0]); });
+    $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1]); });
+    questionNumber ++;
+  }
+}
+
+function lastQuestion() {
+  for (var i = 0; i < input.length; i++) {
+    if (input[i].slug == 'End') {
+      theEndRow = i;
+      break;
+    }
+  }
+  $('.question-' + questionNumber).append('<div>' + input[theEndRow].text + '</div>');
+}
 
 $(document).ready(function(){
   init();
