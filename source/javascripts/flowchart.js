@@ -1,91 +1,74 @@
-// initialize tabletop library
 function init() {
-        Tabletop.init( { key: '0AlMgrVuuAI0MdFV6TmgxR0ZZeVpEWmppQnltZzVOWnc',
+  Tabletop.init( { key: '0AlMgrVuuAI0MdFV6TmgxR0ZZeVpEWmppQnltZzVOWnc',
                    callback: readData,
                    simpleSheet: true } );
-    }
+}
 
 var input;
 var that;
 var row;
 var connections = [];
+var number = 0;
+var slug;
+var separator = ",";
+var thisrow;
 
 // get spreadsheet data
 function readData(data, tabletop) { 
-    input = data;
-    console.log(input);
-    that = this;
-    buildQuestion();
-    makeConnections();
+  input = data;
+  console.log(input);
+  that = this;
+  slug = input[0].slug;
+  buildQuestion(slug);
+  // makeConnections();
 }
 
-// make story from spreadsheet data
-/* make_story_data_from_spreadsheet_data: function(data) {
-                var story = {};
-                that.start_page = 'cyoa_page_' + that.clean_slug(data[0].slug);
-                for (var i = 0; i < data.length; i++) {
-                    var row = data[i];
-                    var page = {}; 
-                    page.html = that.build_story_page_html_from_row(row);
-                    page.connects = that.make_connects_data_from_row(row);
-                    story['cyoa_page_' + that.clean_slug(row.slug)] = page;
-                }
-                return story;
-            },
-*/
+function getSlug (newslug) {
+  slug = newslug;
+  buildQuestion(slug);
+}
 
+function compareSlug(slug) {
+  for (var i = 0; i < input.length; i++) {
+    if (input[i].slug == slug) {
+      thisrow = i;
+      console.log(thisrow)
+      break;
+    }
+  }
+}
 // builds all questions - temporary
-function buildQuestion() {
-    for (i=0; i < input.length; i++) {
-        $(".chart_wrapper").append("<h4>" + input[i].text + "</h4><p>" + input[i].connectstext + "</p>");
-    }
+function buildQuestion(slug) {
+  compareSlug(slug);
+  $(".chart_wrapper").append("<div class='question-" + number + "'><h4>" + input[thisrow].text + "</h4></div>");
+  writeOptions(thisrow);
 }
 
-// makes connections between questions
-function makeConnections() {
-    var separator = ",";
-    for (var i=0; i < input.length; i++) {
-        var row = input[i];
-        var connects_to = row.connectsto.split(separator);
-        var connects_labels = row.connectstext.split(separator);
-        $(".chart_wrapper").append("<p>" + connects_to + "</p>");
-        console.log(connects_to);
-        for (var j=0; j < connects_to.length; j++) {
-            var connection = connects_to[j];
-            connections.push({
-                'link' : connection,
-                'html' : connects_labels[j]
-            });
-        }
-    }
+function writeOptions(thisrow) {
+  var row = input[thisrow];
+  var connects_labels = row.connectstext.split(separator);
+  $('.question-' + number).append("<button class='question-" + number + "-left'>" + connects_labels[0] + "</button><button class='question-" + number + "-right'>" + connects_labels[1] + '</button>');
+  nextQuestion(thisrow);
+}
 
-/*make_connects_data_from_row: function(row) {
-                var connections = [];
-                var connects_to = row.connectsto.split(that.separator);
-                var connects_labels = row.connectstext.split(that.separator);
-                for (var i = 0; i < connects_to.length; i++) {
-                    connection = connects_to[i].toLowerCase();
-                    var connection = connection.replace(/[^a-zA-Z0-9]/g, '');
-                    connections.push({
-                        'link' : 'cyoa_page_' + connection,
-                        'html' : connects_labels[i]
-                    });
-                }
-                return connections;
-            },
-*/
-
-// build question from spreadsheet row
-
-
+var connects_to;
+function nextQuestion(thisrow) {
+  var row = input[thisrow];
+  connects_to = row.connectsto.split(separator);
+  console.log(connects_to[0], connects_to[1]);
+  // $('.next').on('click', nextQuestion);
+  $('.question-' + number + '-left').on('click', function() { getSlug(connects_to[0]) });
+  $('.question-' + number + '-right').on('click', function() { getSlug(connects_to[1]) });
+  number ++;
+}
 
 $(document).ready(function(){
-    init();
-    
-    // build story page from row (html)
-    
+  init();
+  
+  // build story page from row (html)
+  
 
-    // make connects data from row
+  // make connects data from row
 
-    // display page
+  // display page
 });
