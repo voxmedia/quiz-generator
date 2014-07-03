@@ -16,7 +16,7 @@ function readData(data, tabletop) {
 }
 
 function getSlug (newslug) {
-  $(this).disabled = true;
+  $('button').attr('disabled', true);
   slug = newslug;
   buildQuestion(slug);
 }
