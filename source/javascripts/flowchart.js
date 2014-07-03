@@ -51,6 +51,10 @@ function writeOptions(currentRow) {
   }
 }
 
+function restart() {
+
+}
+
 function lastQuestion() {
   for (var i = 0; i < input.length; i++) {
     if (input[i].slug == 'End') {
@@ -58,7 +62,12 @@ function lastQuestion() {
       break;
     }
   }
-  $('.question-' + questionNumber).append('<div>' + input[theEndRow].text + '</div>');
+  $('.question-' + questionNumber).append('<div>' + input[theEndRow].text + '</div><br/><button class="flowchart-button restart">Restart</button></div>');
+  $('.restart').on('click', function(){
+    $('.chart_wrapper').empty();
+    slug = input[0].slug;
+    buildQuestion(slug);
+  })
 }
 
 $(document).ready(function(){
