@@ -4,23 +4,15 @@ function init() {
                    simpleSheet: true } );
 }
 
-var input;
-var that;
-var row;
-var connections = [];
-var number = 0;
-var slug;
+var input, row, slug, currentRow, connectsTo;;
+var questionNumber = 0;
 var separator = ",";
-var thisrow;
 
 // get spreadsheet data
 function readData(data, tabletop) { 
   input = data;
-  console.log(input);
-  that = this;
   slug = input[0].slug;
   buildQuestion(slug);
-  // makeConnections();
 }
 
 function getSlug (newslug) {
@@ -31,44 +23,34 @@ function getSlug (newslug) {
 function compareSlug(slug) {
   for (var i = 0; i < input.length; i++) {
     if (input[i].slug == slug) {
-      thisrow = i;
-      console.log(thisrow)
+      currentRow = i;
       break;
     }
   }
 }
-// builds all questions - temporary
+
 function buildQuestion(slug) {
   compareSlug(slug);
-  $(".chart_wrapper").append("<div class='question-" + number + "'><h4>" + input[thisrow].text + "</h4></div>");
-  writeOptions(thisrow);
+  $(".chart_wrapper").append("<div class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
+  writeOptions(currentRow);
 }
 
-function writeOptions(thisrow) {
-  var row = input[thisrow];
+function writeOptions(currentRow) {
+  var row = input[currentRow];
   var connects_labels = row.connectstext.split(separator);
-  $('.question-' + number).append("<button class='question-" + number + "-left'>" + connects_labels[0] + "</button><button class='question-" + number + "-right'>" + connects_labels[1] + '</button>');
-  nextQuestion(thisrow);
+  $('.question-' + questionNumber).append("<button class='question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
+  nextQuestion(currentRow);
 }
 
-var connects_to;
-function nextQuestion(thisrow) {
-  var row = input[thisrow];
-  connects_to = row.connectsto.split(separator);
-  console.log(connects_to[0], connects_to[1]);
-  // $('.next').on('click', nextQuestion);
-  $('.question-' + number + '-left').on('click', function() { getSlug(connects_to[0]) });
-  $('.question-' + number + '-right').on('click', function() { getSlug(connects_to[1]) });
-  number ++;
-}
+function nextQuestion(currentRow) {
+  var row = input[currentRow];
+  connectsTo = row.connectsto.split(separator);
+  console.log(connectsTo[0], connectsTo[1]);
+  $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0]) });
+  $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1]) });
+  questionNumber ++;
+} 
 
 $(document).ready(function(){
   init();
-  
-  // build story page from row (html)
-  
-
-  // make connects data from row
-
-  // display page
 });
