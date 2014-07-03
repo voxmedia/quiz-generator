@@ -1,0 +1,29 @@
+$font-stack: Helvetica, sans-serif;
+
+body p, h1, h2, button {
+  font-family: $font-stack;
+  text-align: center;
+}
+
+.flowchart {
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.choices {
+  text-align: center;
+}
+
+.choices button {
+  font-size: .9em;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+  cursor: pointer;
+  width: 160px;
+  margin: 2px 5px;
+  padding: .7em .7em .6em;
+  border: 0;
+  color: #fff;
+}
