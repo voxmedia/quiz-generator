@@ -52,7 +52,9 @@ function writeOptions(currentRow) {
 }
 
 function restart() {
-
+  $('.chart_wrapper').empty();
+  slug = input[0].slug;
+  buildQuestion(slug);
 }
 
 function lastQuestion() {
@@ -63,11 +65,7 @@ function lastQuestion() {
     }
   }
   $('.question-' + questionNumber).append('<div>' + input[theEndRow].text + '</div><br/><button class="flowchart-button restart">Restart</button></div>');
-  $('.restart').on('click', function(){
-    $('.chart_wrapper').empty();
-    slug = input[0].slug;
-    buildQuestion(slug);
-  })
+  $('.restart').on('click', restart);
 }
 
 $(document).ready(function(){
