@@ -4,7 +4,7 @@ function init() {
                    simpleSheet: true } );
 }
 
-var input, row, slug, currentRow, connectsTo;;
+var input, slug, currentRow, connectsTo;
 var questionNumber = 0;
 var separator = ",";
 
@@ -46,8 +46,8 @@ function nextQuestion(currentRow) {
   var row = input[currentRow];
   connectsTo = row.connectsto.split(separator);
   console.log(connectsTo[0], connectsTo[1]);
-  $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0]) });
-  $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1]) });
+  $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0]); });
+  $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1]); });
   questionNumber ++;
 } 
 
