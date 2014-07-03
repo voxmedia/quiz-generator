@@ -1,4 +1,5 @@
-$font-stack: Helvetica, sans-serif;
+$font-stack: 'Alight Sans', sans-serif;
+$question-font: 'Balto', sans-serif;
 
 body p, h1, h2, button {
   font-family: $font-stack;
@@ -21,9 +22,15 @@ body p, h1, h2, button {
   line-height: 1;
   display: inline-block;
   cursor: pointer;
-  width: 160px;
+  width: 120px;
   margin: 2px 5px;
-  padding: .7em .7em .6em;
+  padding: .2em .1em .2em .1em;
   border: 0;
   color: #fff;
+}
+
+.question p {
+  font-family: $question-font;
+  font-size: 1.2em;
+  font-weight: 800;
 }
