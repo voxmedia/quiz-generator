@@ -4,7 +4,7 @@ function init() {
                    simpleSheet: true } );
 }
 
-var input, slug, currentRow, connectsTo;
+var input, slug, currentRow, connectsTo, target;
 var questionNumber = 0;
 var separator = ",";
 
@@ -17,6 +17,11 @@ function readData(data, tabletop) {
 
 function getSlug (newslug, selection) {
   $(selection).addClass('selected');
+  target = $("<div class='question-" + (questionNumber+1) + "'>");
+  $('html,body').animate({
+     //scrollTop: target.offset().top
+     scrollTop: $(document).height()
+  }, 1000);
   $('button').attr('disabled', true);
   slug = newslug;
   buildQuestion(slug);
@@ -56,8 +61,22 @@ function writeOptions(currentRow) {
     $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1], this); });
     questionNumber++;
   }
-
 }
+
+/*function scrollToQuestion() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+}*/
 
 function restart() {
   $('.quiz-container').empty();
