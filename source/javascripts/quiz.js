@@ -56,12 +56,13 @@
 
   // check answer by comparing selected html and correct answer from input
   var checkAnswer = function () {
+    $("li").off('click');
     if ($(".selected").length > 0) {
+
       answer = $(".selected").html();
       if (answer == input[currentQuestion].answer) {
         score++;
         displayProgress();
-
         $(".answer").html("<p>Correct!</p><p>" + input[currentQuestion].correct + "</p>");
 
       } else {
