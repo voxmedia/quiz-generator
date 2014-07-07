@@ -1,1 +1,4 @@
 source/images/.DS_Store
+
+# Ignore the build directory
+/build
