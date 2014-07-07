@@ -10,12 +10,12 @@
 $font-stack: 'Alight Sans', sans-serif;
 $question-font: 'Balto', sans-serif;
 
-.chart_wrapper {
+.quiz-container {
   font-family: $font-stack;
   text-align: center;
   margin: 0 auto;
-  max-width: 900px;
-  width: 90%;
+  max-width: 770px;
+  width: 100%;
 }
 
 .choices {

@@ -76,6 +76,12 @@ function lastQuestion() {
   $('.restart').on('click', restart); 
 }
 
+// attach quiz and vertical-specific stylesheets
+  var addCSS = function () {
+    $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
+  }
+
 $(document).ready(function(){
+  addCSS();
   init();
 });
