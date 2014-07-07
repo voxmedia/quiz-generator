@@ -34,9 +34,9 @@ function compareSlug(slug) {
 function buildQuestion(slug) {
   compareSlug(slug);
   if (currentRow == 0) {
-    $(".chart_wrapper").append("<div class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
+    $(".quiz-container").append("<div class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
   } else {
-    $(".chart_wrapper").append("<div style='display:none;' class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
+    $(".quiz-container").append("<div style='display:none;' class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
   }
   writeOptions(currentRow);
 }
@@ -60,7 +60,7 @@ function writeOptions(currentRow) {
 }
 
 function restart() {
-  $('.chart_wrapper').empty();
+  $('.quiz-container').empty();
   slug = input[0].slug;
   buildQuestion(slug);
 }
