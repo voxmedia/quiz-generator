@@ -4,9 +4,13 @@
 </div>
 <div class="container">
   <h4> Write your quiz</h4>
-  <p>Use <a href="https://drive.google.com/previewtemplate?id=0AlMgrVuuAI0MdGl6NngwMGYtX3RHQjlic0xzNnBjUGc&mode=public" target="_new">this Google Spreadsheet template</a> to write your quiz.</p>
+  <form>
+    <input type="radio" name="quiz-type" value="quiz">&nbsp;Multiple Choice&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="quiz-type" value="flowchart">&nbsp;Flowchart&nbsp;&nbsp;&nbsp;&nbsp;
+  </form> 
+  <p>Use <a id="quiz-template" target="_new">this Google Spreadsheet template</a> to write your quiz.</p>
   <p>Once you're done editing, publish the spreadsheet to the web. Under the <b>"File"</b> menu, select <b>"Publish to the Web."</b> Click <b>"Start Publishing"</b> and copy the URL to build the quiz.</p>
-  <center><p style="font-size:0.8em">Want to test it out? Try this spreadsheet:<br><textarea style="overflow:auto;" rows="1">https://docs.google.com/spreadsheet/pub?key=0AlMgrVuuAI0MdDE4ZVRWVXpmVktHc3oyNVJ0SWt0c0E&output=html</textarea></p></center>
+  <center><p style="font-size:0.8em">Want to test it out? Try this spreadsheet:<br><textarea style="overflow:auto;" rows="1"></textarea></p></center>
 
 <h5> Enter your spreadsheet</h5>
 <p>Copy and paste your spreadsheet's URL here: <input type="text" id="url"></p>
@@ -20,7 +24,7 @@
 </form>
 <div class="embed" style="margin-top: 30px; margin-bottom: 60px;">
   <h5>Generate, copy and paste this code into Chorus</h5>
-  <center><p><button id="build" onclick="buildquiz()">Generate your quiz</button><p>
+  <center><p><button id="build" onclick="submitquiz()">Generate your quiz</button><p>
   <p><textarea type="text" name="embedcode" id="embedcode" style="height: 150px; overflow:auto;"></textarea></center></p>
 </div>
 </html>
@@ -32,24 +36,14 @@
 </div>
 
 <script type="text/javascript">
-  var key;
-  var pubStylesheet = 'http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz-vox.css';
-  // var pubStylesheet = 'stylesheets/quiz-vox.css';
-  var pub;
+  
 
-  function getStylesheet() {
-    pub = $('input[name="pub"]:checked').val();
-    pubStylesheet = "http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz-" + pub + ".css";
-    // pubStylesheet = "/stylesheets/quiz-" + pub + ".css";
-  }
+  $(document).ready(function() {
+    $('input:radio[name=quiz-type]').click(function() {
+      quizType = $('input:radio[name=quiz-type]:checked').val();
+      changeTemplate();
+    });
 
-  function embed() {
-    $("#embedcode").html("&lt;div class='quiz-container'></div>&lt;script type='text/javascript'>window.jQuery || document.write('&lt;script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'>&lt;&#92;/script>');&lt;/script>&lt;script type='text/javascript'>var input = " + JSON.stringify(input) + "; var pubStylesheet = '" + pubStylesheet + "';&lt;/script>&lt;script src='http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz.js'>&lt;/script>");
-  }
-
-  function buildquiz(){
-    url = $('#url').val();
-    init();
-    getStylesheet();
-  }
+    submitquiz();
+  });
 </script>
