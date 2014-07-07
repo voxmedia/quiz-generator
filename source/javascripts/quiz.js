@@ -77,7 +77,7 @@
     }
   }
 
-  // increment question count and built new questino and answers
+  // increment question count and built new question and answers
   var nextQuestion = function () {
     currentQuestion++;
     buildQuiz();

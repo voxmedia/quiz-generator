@@ -1,9 +1,12 @@
-<h1>Flowchart Generator</h1>
+<div class="vox-logo"><a href="http://www.voxmedia.com/"><img src="images/voxlogo.png" style="width:40px;"></a></div>
+<div class="quiz-quartet">
+  <h1><img src="images/qq.png">&nbsp;&nbsp;Flowchart</h1>
+</div>
 <div class="container">
   <h4> Write your flowchart</h4>
   <p>Use <a href="https://drive.google.com/previewtemplate?id=0AlMgrVuuAI0MdGl6NngwMGYtX3RHQjlic0xzNnBjUGc&mode=public" target="_new">this Google Spreadsheet template</a> to write your quiz.</p>
   <p>Once you're done editing, publish the spreadsheet to the web. Under the <b>"File"</b> menu, select <b>"Publish to the Web."</b> Click <b>"Start Publishing"</b> and copy the URL to build the quiz.</p>
-  <center><p style="font-size:0.8em">Want to test it out? Try this spreadsheet:<br><textarea style="overflow:auto;" rows="1">https://docs.google.com/spreadsheet/pub?key=0AlMgrVuuAI0MdDE4ZVRWVXpmVktHc3oyNVJ0SWt0c0E&output=html</textarea></p></center>
+  <center><p style="font-size:0.8em">Want to test it out? Try this spreadsheet:<br><textarea style="overflow:auto;" rows="1">https://docs.google.com/spreadsheets/d/1CTJiGNNreq2TALYLesWybbiDJ4FRRPSuW_3SbaDwOoU/pubhtml</textarea></p></center>
 
 <h5> Enter your spreadsheet</h5>
 <p>Copy and paste your spreadsheet's URL here: <input type="text" id="url"></p>
@@ -17,7 +20,7 @@
 </form>
 <div class="embed" style="margin-top: 30px; margin-bottom: 60px;">
   <h5>Generate, copy and paste this code into Chorus</h5>
-  <center><p><button id="build" onclick="buildquiz()">Generate your quiz</button><p>
+  <center><p><button id="build" onclick="buildquiz()">Generate your chart</button><p>
   <p><textarea type="text" name="embedcode" id="embedcode" style="height: 150px; overflow:auto;"></textarea></center></p>
 </div>
 </html>
@@ -25,9 +28,9 @@
 </div>
 
 <div class="quiz-preview">
-<div class="quiz-container"></div>
+	<div class="chart_wrapper"></div>
+	<div class="quiz-container"></div>
 </div>
-<div class="chart_wrapper"></div>
 
 <script src="javascripts/jquery.min.js"></script>
 <script src="javascripts/tabletop.js"></script>
