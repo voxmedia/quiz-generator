@@ -15,13 +15,23 @@ function readData(data, tabletop) {
   buildQuestion(slug);
 }
 
-function getSlug (newslug, selection) {
-  $(selection).addClass('selected');
-  target = $("<div class='question-" + (questionNumber+1) + "'>");
+function scrollDown(target) {
+  console.log(target);
+  console.log($(target).height());
+  scrollTo = $(document).height() - $(target).offset().top;
   $('html,body').animate({
      //scrollTop: target.offset().top
-     scrollTop: $(document).height()
+     //scrollTop: $(document).height()
+     scrollTop: scrollTo
   }, 1000);
+  /*$('.quiz-container').scrollTo(scroll, {
+    offset: $('.question-' + questionNumber).offset().top,
+    duration: 1000
+  });*/
+}
+
+function getSlug (newslug, selection) {
+  $(selection).addClass('selected');
   $('button').attr('disabled', true);
   slug = newslug;
   buildQuestion(slug);
@@ -42,6 +52,7 @@ function buildQuestion(slug) {
     $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
   } else {
     $(".quiz-container").append("<div style='display:none;' class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
+    scrollDown(".question-" + questionNumber);
   }
   writeOptions(currentRow);
 }
@@ -63,21 +74,6 @@ function writeOptions(currentRow) {
   }
 }
 
-/*function scrollToQuestion() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-}*/
-
 function restart() {
   $('.quiz-container').empty();
   slug = input[0].slug;
@@ -85,6 +81,7 @@ function restart() {
 }
 
 function lastQuestion() {
+  scrollDown();
   for (var i = 0; i < input.length; i++) {
     if (input[i].slug == 'End') {
       theEndRow = i;
@@ -92,7 +89,7 @@ function lastQuestion() {
     }
   }
   $('.question-' + questionNumber).append('<div class="last"><p>' + input[theEndRow].text + '</p><br/><button class="flowchart-button qq-button restart">Restart</button></div>');
-  $('.restart').on('click', restart); 
+  $('.restart').on('click', restart);
 }
 
 // attach quiz and vertical-specific stylesheets
