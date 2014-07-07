@@ -18,16 +18,10 @@ function readData(data, tabletop) {
 function scrollDown(target) {
   console.log(target);
   console.log($(target).height());
-  scrollTo = $(document).height() - $(target).offset().top;
+  console.log($(target).offset().top);  
   $('html,body').animate({
-     //scrollTop: target.offset().top
-     //scrollTop: $(document).height()
-     scrollTop: scrollTo
+     scrollTop: $(target).offset().top
   }, 1000);
-  /*$('.quiz-container').scrollTo(scroll, {
-    offset: $('.question-' + questionNumber).offset().top,
-    duration: 1000
-  });*/
 }
 
 function getSlug (newslug, selection) {
@@ -52,7 +46,7 @@ function buildQuestion(slug) {
     $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
   } else {
     $(".quiz-container").append("<div style='display:none;' class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
-    scrollDown(".question-" + questionNumber);
+    scrollDown(".question-" + (questionNumber - 1));
   }
   writeOptions(currentRow);
 }
@@ -61,7 +55,6 @@ function writeOptions(currentRow) {
   var row = input[currentRow];
   var connects_labels = row.connectstext.split(separator);
   connectsTo = row.connectsto.split(separator);
-  console.log(connectsTo[0], connectsTo[1]);
   if (connectsTo[0] == 'End') {
     $('.question-' + questionNumber).fadeIn(400);
     lastQuestion();
@@ -81,7 +74,6 @@ function restart() {
 }
 
 function lastQuestion() {
-  scrollDown();
   for (var i = 0; i < input.length; i++) {
     if (input[i].slug == 'End') {
       theEndRow = i;
