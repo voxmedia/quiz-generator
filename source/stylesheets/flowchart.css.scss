@@ -1,3 +1,12 @@
+// Mixin for button hover transitions
+@mixin transition($transition-time) {
+  -o-transition: $transition-time;
+  -ms-transition: $transition-time;
+  -moz-transition: $transition-time;
+  -webkit-transition: $transition-time;
+  transition: $transition-time;
+}
+
 $font-stack: 'Alight Sans', sans-serif;
 $question-font: 'Balto', sans-serif;
 
@@ -7,11 +16,11 @@ body p, h1, h2, button {
 }
 
 .chart_wrapper {
+  font-family: $font-stack;
+  text-align: center;
+  margin: 0 auto;
   max-width: 900px;
   width: 90%;
-  margin: 0 auto;
-  text-align: center;
-  font-family: $font-stack;
 }
 
 .choices {
@@ -23,19 +32,20 @@ body p, h1, h2, button {
 }
 
 button.flowchart-button {
+  @include transition(0.2s);
   font-size: .9em;
+  font-style: italic;
+  font-weight: 100;
+  color: #414141;
+  background-color: #ececec;
   cursor: pointer; 
   width: 120px;
   margin: 0.1em 1em 1em 0;
   border: 0;
-  color: #414141;
-  background-color: #ececec;
-  font-weight: 100;
-  font-style: italic;
-}
-
-button.flowchart-button:hover {
-  background-color: #f37b21;
+  
+  &:hover {
+    background-color: #f37b21;
+  }
 }
 
 .question p {
