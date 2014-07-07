@@ -13,7 +13,9 @@ $question-font: 'Balto', sans-serif;
 .quiz-container {
   font-family: $font-stack;
   text-align: center;
+  background-color: #FFFFFF;
   margin: 0 auto;
+  padding-bottom: 20px;
   max-width: 770px;
   width: 100%;
 }
@@ -23,13 +25,12 @@ $question-font: 'Balto', sans-serif;
 }
 
 .selected {
-  background-color: #f37b21 !important;
+  background-color: #bfd1df !important;
 }
 
 button.flowchart-button {
   @include transition(0.2s);
   font-size: .9em;
-  font-style: italic;
   font-weight: 100;
   color: #414141;
   background-color: #ececec;
@@ -37,13 +38,17 @@ button.flowchart-button {
   width: 120px;
   margin: 0.1em 1em 1em 0;
   border: 0;
-  margin-top: 15px;
+  margin-top: 5px;
   padding: 12px 0px;
   padding: 8px 10px;
   
   &:hover {
     background-color: #f37b21;
   }
+}
+
+.question {
+  margin-top: 1.5em !important;
 }
 
 .question p {
@@ -58,4 +63,8 @@ button.flowchart-button {
   width: 50%;
   min-width: 400px;
   border-top: 1px solid #ececec;
+}
+
+.last p {
+  margin-top: 2em;
 }

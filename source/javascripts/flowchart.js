@@ -34,9 +34,9 @@ function compareSlug(slug) {
 function buildQuestion(slug) {
   compareSlug(slug);
   if (currentRow == 0) {
-    $(".quiz-container").append("<div class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
+    $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
   } else {
-    $(".quiz-container").append("<div style='display:none;' class='question-" + questionNumber + "'><h4>" + input[currentRow].text + "</h4></div>");
+    $(".quiz-container").append("<div style='display:none;' class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
   }
   writeOptions(currentRow);
 }
@@ -50,7 +50,7 @@ function writeOptions(currentRow) {
     $('.question-' + questionNumber).fadeIn(400);
     lastQuestion();
   } else {
-    $('.question-' + questionNumber).append("<button class='flowchart-button question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='flowchart-button question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
+    $('.question-' + questionNumber).append("<button class='flowchart-button qq-button question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='flowchart-button qq-button question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
     $('.question-' + questionNumber).fadeIn(400);
     $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0], this); });
     $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1], this); });
@@ -72,13 +72,14 @@ function lastQuestion() {
       break;
     }
   }
-  $('.question-' + questionNumber).append('<div class="last"><p>' + input[theEndRow].text + '</p><br/><button class="flowchart-button restart">Restart</button></div>');
+  $('.question-' + questionNumber).append('<div class="last"><p>' + input[theEndRow].text + '</p><br/><button class="flowchart-button qq-button restart">Restart</button></div>');
   $('.restart').on('click', restart); 
 }
 
 // attach quiz and vertical-specific stylesheets
   var addCSS = function () {
     $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
+    $('head').append('<link rel="stylesheet" href="/stylesheets/quiz-vox.css" type="text/css" />');
   }
 
 $(document).ready(function(){
