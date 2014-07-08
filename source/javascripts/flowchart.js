@@ -4,7 +4,7 @@ function init() {
                    simpleSheet: true } );
 }
 
-var input, slug, currentRow, connectsTo, target;
+var input, slug, currentRow, connectsTo, target, slugComparison;
 var questionNumber = 0;
 var separator = ",";
 
@@ -13,7 +13,6 @@ function readData(data, tabletop) {
   input = data;
   slug = input[0].slug;
   slug = cleanSlug(slug);
-  console.log(slug);
   buildQuestion(slug);
 }
 
@@ -33,16 +32,16 @@ function getSlug (newslug, selection) {
   buildQuestion(slug);
 }
 
+// clean slug
 function cleanSlug(slug) {
-  console.log(slug);
   slug = slug.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-  console.log(slug);
   return slug;
 }
 
 function compareSlug(slug) {
   for (var i = 0; i < input.length; i++) {
-    if (input[i].slug.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() == slug) {
+    slugComparison = cleanSlug(input[i].slug);
+    if (slugComparison == slug) {
       currentRow = i;
       break;
     }
