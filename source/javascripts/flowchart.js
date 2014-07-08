@@ -20,7 +20,7 @@ function scrollDown(target) {
   console.log($(target).height());
   console.log($(target).offset().top);  
   $('html,body').animate({
-     scrollTop: $(target).offset().top -
+     scrollTop: $(target).offset().top - 30
   }, 1000);
 }
 
@@ -70,6 +70,7 @@ function writeOptions(currentRow) {
 
 function restart() {
   $('.quiz-container').empty();
+  scrollDown('.quiz-container');
   questionNumber = 0;
   slug = input[0].slug;
   buildQuestion(slug);
