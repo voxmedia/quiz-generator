@@ -79,3 +79,17 @@ ol.answers > li {
     color: #000000;
   }
 }
+
+// FLowchart selection
+.flowchart-selected {
+  background-color: $red !important;
+  color: #FFFFFF !important;
+}
+
+// Flowchart button hover
+.flowchart-button {
+  &:hover {
+    background-color: $red;
+    color: #FFFFFF;
+  }
+}

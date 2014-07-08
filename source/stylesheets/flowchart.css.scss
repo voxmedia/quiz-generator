@@ -24,10 +24,6 @@ $question-font: 'Balto', sans-serif;
   text-align: center;
 }
 
-.selected {
-  background-color: #bfd1df !important;
-}
-
 button.flowchart-button {
   @include transition(0.2s);
   font-size: .9em;

@@ -50,8 +50,8 @@ var pub;
 
 function getStylesheet() {
 	pub = $('input[name="pub"]:checked').val();
-    pubStylesheet = "http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz-" + pub + ".css";
-    // pubStylesheet = "/stylesheets/quiz-" + pub + ".css";
+    // pubStylesheet = "http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz-" + pub + ".css";
+    pubStylesheet = "/stylesheets/quiz-" + pub + ".css";
 }
 
 function embed() {
@@ -67,4 +67,5 @@ function buildquiz(){
 function buildflowchart() {
 	url = $('#url').val();
     init();
+    getStylesheet();
 }

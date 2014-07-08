@@ -25,7 +25,7 @@ function scrollDown(target) {
 }
 
 function getSlug (newslug, selection) {
-  $(selection).addClass('selected');
+  $(selection).addClass('flowchart-selected');
   $('button').attr('disabled', true);
   slug = newslug;
   buildQuestion(slug);
@@ -90,7 +90,7 @@ function lastQuestion() {
 // attach quiz and vertical-specific stylesheets
   var addCSS = function () {
     $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
-    $('head').append('<link rel="stylesheet" href="/stylesheets/quiz-vox.css" type="text/css" />');
+    $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
   }
 
 $(document).ready(function(){
