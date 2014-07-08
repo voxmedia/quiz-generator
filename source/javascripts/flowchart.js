@@ -1,9 +1,3 @@
-function init() {
-  Tabletop.init( { key: '0AlMgrVuuAI0MdFV6TmgxR0ZZeVpEWmppQnltZzVOWnc',
-                   callback: readData,
-                   simpleSheet: true } );
-}
-
 var input, slug, currentRow, connectsTo, target, slugComparison;
 var questionNumber = 0;
 var separator = ",";
@@ -51,6 +45,8 @@ function compareSlug(slug) {
 function buildQuestion(slug) {
   compareSlug(slug);
   if (currentRow == 0) {
+    // not sure where to put addCSS()??
+    addCSS();
     $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
   } else {
     // $(".quiz-container").append("<div style="display:none;" class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
@@ -97,12 +93,12 @@ function lastQuestion() {
 }
 
 // attach quiz and vertical-specific stylesheets
-  var addCSS = function () {
-    $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
-    $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
-  }
+var addCSS = function () {
+  $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
+  $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
+  console.log(pubStylesheet);
+}
 
 $(document).ready(function(){
-  addCSS();
   init();
 });
