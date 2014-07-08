@@ -26,7 +26,7 @@ function scrollDown(target) {
 
 function getSlug (newslug, selection) {
   $(selection).addClass('flowchart-selected');
-  $('button').attr('disabled', true);
+  $('.flowchart-button').attr('disabled', true);
   slug = newslug;
   buildQuestion(slug);
 }
