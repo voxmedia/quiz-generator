@@ -44,6 +44,14 @@ function buildQuestion(slug) {
   compareSlug(slug);
   if (currentRow == 0) {
     $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
+  } else if (currentRow == 2) {
+    $(".quiz-container").append("<div style='display:none;' class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
+    var windowTop = $(window).scrollTop();
+    var elementOffset = 2*($('.question').offset().top);
+    var distance = (elementOffset - windowTop);
+    $('html,body').animate({
+      scrollTop: distance
+    }, 1000);
   } else {
     $(".quiz-container").append("<div style='display:none;' class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
     scrollDown(".question-" + (questionNumber - 1));
@@ -69,6 +77,7 @@ function writeOptions(currentRow) {
 
 function restart() {
   $('.quiz-container').empty();
+  questionNumber = 0;
   slug = input[0].slug;
   buildQuestion(slug);
 }
