@@ -12,6 +12,8 @@ var separator = ",";
 function readData(data, tabletop) { 
   input = data;
   slug = input[0].slug;
+  slug = cleanSlug(slug);
+  console.log(slug);
   buildQuestion(slug);
 }
 
@@ -31,9 +33,16 @@ function getSlug (newslug, selection) {
   buildQuestion(slug);
 }
 
+function cleanSlug(slug) {
+  console.log(slug);
+  slug = slug.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  console.log(slug);
+  return slug;
+}
+
 function compareSlug(slug) {
   for (var i = 0; i < input.length; i++) {
-    if (input[i].slug == slug) {
+    if (input[i].slug.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() == slug) {
       currentRow = i;
       break;
     }
@@ -62,8 +71,8 @@ function writeOptions(currentRow) {
   } else {
     $('.question-' + questionNumber).append("<button class='flowchart-button qq-button question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='flowchart-button qq-button question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
     $('.question-' + questionNumber).fadeIn(400);
-    $('.question-' + questionNumber + '-left').on('click', function() { getSlug(connectsTo[0], this); });
-    $('.question-' + questionNumber + '-right').on('click', function() { getSlug(connectsTo[1], this); });
+    $('.question-' + questionNumber + '-left').on('click', function() { getSlug(cleanSlug(connectsTo[0]), this); });
+    $('.question-' + questionNumber + '-right').on('click', function() { getSlug(cleanSlug(connectsTo[1]), this); });
     questionNumber++;
   }
 }
@@ -78,7 +87,8 @@ function restart() {
 
 function lastQuestion() {
   for (var i = 0; i < input.length; i++) {
-    if (input[i].slug == 'End') {
+    input[i].slug = cleanSlug(input[i].slug);
+    if (input[i].slug == 'end') {
       theEndRow = i;
       break;
     }
