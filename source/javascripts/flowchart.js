@@ -95,8 +95,9 @@ function lastQuestion() {
     }
   }
   $('.question-' + questionNumber).append('<div class="last"><p>' + input[theEndRow].text + '</p><br/>');
-  shareQuiz();
+  
   $('.quiz-container').append('<button class="flowchart-button qq-button restart">Restart</button></div>');
+  shareQuiz();
   $('.restart').on('click', restart);
 }
 

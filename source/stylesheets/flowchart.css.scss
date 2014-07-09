@@ -47,6 +47,10 @@ button.flowchart-button {
   margin-top: 1.5em !important;
 }
 
+.scorecard {
+  margin-top: 15px;
+}
+
 .question p {
   font-family: $question-font;
   font-size: 1.2em;
@@ -63,6 +67,7 @@ button.flowchart-button {
 
 .last p {
   margin-top: 2em;
+  margin-bottom: 0px;
 }
 
 #social-media {
@@ -74,7 +79,7 @@ button.flowchart-button {
   text-align: center;
   list-style-type: none;
   margin: 0;
-  padding-bottom: 0px;
+  padding: 0px;
   margin-bottom: 10px;
   li {
     display: inline-block;
