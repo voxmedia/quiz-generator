@@ -14,14 +14,19 @@ var theverge = 'verge';
 var polygon = 'polygon';
 var sbnation = 'SBNation';
 
-
-// get spreadsheet data
-function readData(data, tabletop) { 
-  input = data;
+$(document).ready(function() {
   slug = input[0].slug;
   slug = cleanSlug(slug);
   buildQuestion(slug);
-}
+});
+
+// get spreadsheet data
+// function readData(data, tabletop) { 
+//   input = data;
+//   slug = input[0].slug;
+//   slug = cleanSlug(slug);
+//   buildQuestion(slug);
+// }
 
 function scrollDown(target) {
   console.log(target);
@@ -139,10 +144,7 @@ function shareQuiz() {
 // attach quiz and vertical-specific stylesheets
 var addCSS = function () {
   $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
-  // $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
+  $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
+  
   // console.log(pubStylesheet);
 }
-
-$(document).ready(function(){
-  init();
-});
