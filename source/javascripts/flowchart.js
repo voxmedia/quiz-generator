@@ -77,10 +77,15 @@ function writeOptions(currentRow) {
     $('.question-' + questionNumber).fadeIn(400);
     lastQuestion();
   } else {
-    $('.question-' + questionNumber).append("<button class='flowchart-button qq-button question-" + questionNumber + "-left'>" + connects_labels[0] + "</button><button class='flowchart-button qq-button question-" + questionNumber + "-right'>" + connects_labels[1] + '</button>');
+    for (var i = 0; i < connects_labels.length; i ++) {
+      $('.question-' + questionNumber).append("<button class='flowchart-button qq-button choice-" + questionNumber + "-" + i + "'>" + connects_labels[i] + "</button>");
+      $('.choice-' + questionNumber + '-' + i).on('click', function() {
+        var classes = $(this).attr('class').split(' ');
+        number = classes[classes.length - 1].split('-');
+        getSlug(cleanSlug(connectsTo[number[number.length- 1]]), this);
+      });
+    }
     $('.question-' + questionNumber).fadeIn(400);
-    $('.question-' + questionNumber + '-left').on('click', function() { getSlug(cleanSlug(connectsTo[0]), this); });
-    $('.question-' + questionNumber + '-right').on('click', function() { getSlug(cleanSlug(connectsTo[1]), this); });
     questionNumber++;
   }
 }
@@ -134,8 +139,8 @@ function shareQuiz() {
 // attach quiz and vertical-specific stylesheets
 var addCSS = function () {
   $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
-  $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
-  console.log(pubStylesheet);
+  // $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
+  // console.log(pubStylesheet);
 }
 
 $(document).ready(function(){
