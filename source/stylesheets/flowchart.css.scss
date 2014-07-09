@@ -64,3 +64,27 @@ button.flowchart-button {
 .last p {
   margin-top: 2em;
 }
+
+#social-media {
+  padding: 10px;
+}
+
+// Social media buttons on final scorecard
+#social-media ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  li {
+    display: inline-block;
+    a {
+      text-decoration: none;
+      svg {
+        height: 2em;
+        width: 2em;
+        margin-right: 1em;
+      }
+    }
+  }
+}
