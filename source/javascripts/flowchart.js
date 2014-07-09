@@ -19,21 +19,10 @@ var sbnation = 'SBNation';
 var addCSS = function () {
   $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
   $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
-  
-  // console.log(pubStylesheet);
 }
-
-$(document).ready(function() {
-  slug = input[0].slug;
-  slug = cleanSlug(slug);
-  buildQuestion(slug);
-});
 
 // smooth scroll to next question
 function scrollDown(target) {
-  console.log(target);
-  console.log($(target).height());
-  console.log($(target).offset().top);  
   $('html,body').animate({
      scrollTop: $(target).offset().top - 30
   }, 1000);
@@ -66,13 +55,11 @@ function compareSlug(slug) {
 
 // build question in flowchart - scrolldown enabled for all questions except the last one
 function buildQuestion(slug) {
+  addCSS();
   compareSlug(slug);
   if (currentRow == 0) {
-    // not sure where to put addCSS()??
-    addCSS();
     $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
   } else {
-    // $(".quiz-container").append("<div style="display:none;" class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
     $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
     scrollDown(".question-" + (questionNumber));
   }
@@ -111,7 +98,6 @@ function lastQuestion() {
     }
   }
   $('.question-' + questionNumber).append('<div class="last"><p>' + input[theEndRow].text + '</p><br/>');
-  
   $('.quiz-container').append('<button class="flowchart-button qq-button restart">Restart</button></div>');
   shareQuiz();
   $('.restart').on('click', restart);
@@ -135,9 +121,7 @@ function shareQuiz() {
     default:
       account = 'voxproduct';
   }
-  
-    $(".quiz-container").append("<div class='scorecard'><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=Check out this flowchart " + link + " via @" +  account + "' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div></div>");
-    console.log("score");
+  $(".quiz-container").append("<div class='scorecard'><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=Check out this flowchart " + link + " via @" +  account + "' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div></div>");
 }
 
 // restarts flowchart from beginning
@@ -148,3 +132,9 @@ function restart() {
   slug = input[0].slug;
   buildQuestion(slug);
 }
+
+$(document).ready(function() {
+  slug = input[0].slug;
+  slug = cleanSlug(slug);
+  buildQuestion(slug);
+});
