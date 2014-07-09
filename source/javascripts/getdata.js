@@ -26,10 +26,10 @@ function addJS() {
 function changeTemplate() {
 	if (quizType == 'quiz') {
         $('#quiz-template').attr('href', 'https://drive.google.com/previewtemplate?id=0AlMgrVuuAI0MdGl6NngwMGYtX3RHQjlic0xzNnBjUGc&mode=public');
-        $('#example-spreadsheet').val('https://docs.google.com/spreadsheet/pub?key=0AlMgrVuuAI0MdDE4ZVRWVXpmVktHc3oyNVJ0SWt0c0E&output=html');
+        $('#example-spreadsheet').val('https://docs.google.com/spreadsheet/pub?key=0AlMgrVuuAI0MdGl6NngwMGYtX3RHQjlic0xzNnBjUGc&output=html');
       } else {
         // flowchart quiz template
-        $('#example-spreadsheet').val('https://docs.google.com/spreadsheets/d/1CTJiGNNreq2TALYLesWybbiDJ4FRRPSuW_3SbaDwOoU/pubhtml');
+        $('#example-spreadsheet').val('https://docs.google.com/spreadsheet/pub?key=0ArcRX35HpjojdGlSR012UjVDZkpIM19ObVY5TE03U2c&output=html');
       }
       // colors look wonky
 }
