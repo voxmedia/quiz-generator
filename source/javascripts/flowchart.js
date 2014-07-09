@@ -1,5 +1,5 @@
 // variables
-var input, slug, currentRow, connectsTo, target, slugComparison;
+var input, slug, currentRow, connectsTo, target, slugComparison, pub;
 var questionNumber = 0;
 var separator = ",";
 
