@@ -1,3 +1,4 @@
+// variables
 var input, slug, currentRow, connectsTo, target, slugComparison;
 var questionNumber = 0;
 var separator = ",";
@@ -28,14 +29,7 @@ $(document).ready(function() {
   buildQuestion(slug);
 });
 
-// get spreadsheet data
-// function readData(data, tabletop) { 
-//   input = data;
-//   slug = input[0].slug;
-//   slug = cleanSlug(slug);
-//   buildQuestion(slug);
-// }
-
+// smooth scroll to next question
 function scrollDown(target) {
   console.log(target);
   console.log($(target).height());
@@ -45,6 +39,7 @@ function scrollDown(target) {
   }, 1000);
 }
 
+// get next slug to build question, disable previous question's buttons
 function getSlug (newslug, selection) {
   $(selection).addClass('flowchart-selected');
   $('.flowchart-button').attr('disabled', true);
@@ -58,6 +53,7 @@ function cleanSlug(slug) {
   return slug;
 }
 
+// compare slugs to determine currentRow in spreadsheet
 function compareSlug(slug) {
   for (var i = 0; i < input.length; i++) {
     slugComparison = cleanSlug(input[i].slug);
@@ -68,6 +64,7 @@ function compareSlug(slug) {
   }
 }
 
+// build question in flowchart - scrolldown enabled for all questions except the last one
 function buildQuestion(slug) {
   compareSlug(slug);
   if (currentRow == 0) {
@@ -82,6 +79,7 @@ function buildQuestion(slug) {
   writeOptions(currentRow);
 }
 
+// write possible options to each question, handles multiple options
 function writeOptions(currentRow) {
   var row = input[currentRow];
   var connects_labels = row.connectstext.split(separator);
@@ -103,14 +101,7 @@ function writeOptions(currentRow) {
   }
 }
 
-function restart() {
-  $('.quiz-container').empty();
-  scrollDown('.quiz-container');
-  questionNumber = 0;
-  slug = input[0].slug;
-  buildQuestion(slug);
-}
-
+// handles last question and social media sharing buttons
 function lastQuestion() {
   for (var i = 0; i < input.length; i++) {
     input[i].slug = cleanSlug(input[i].slug);
@@ -147,4 +138,13 @@ function shareQuiz() {
   
     $(".quiz-container").append("<div class='scorecard'><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=Check out this flowchart " + link + " via @" +  account + "' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div></div>");
     console.log("score");
+}
+
+// restarts flowchart from beginning
+function restart() {
+  $('.quiz-container').empty();
+  scrollDown('.quiz-container');
+  questionNumber = 0;
+  slug = input[0].slug;
+  buildQuestion(slug);
 }
