@@ -14,6 +14,14 @@ var theverge = 'verge';
 var polygon = 'polygon';
 var sbnation = 'SBNation';
 
+// attach quiz and vertical-specific stylesheets
+var addCSS = function () {
+  $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
+  $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
+  
+  // console.log(pubStylesheet);
+}
+
 $(document).ready(function() {
   slug = input[0].slug;
   slug = cleanSlug(slug);
@@ -139,12 +147,4 @@ function shareQuiz() {
   
     $(".quiz-container").append("<div class='scorecard'><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=Check out this flowchart " + link + " via @" +  account + "' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div></div>");
     console.log("score");
-}
-
-// attach quiz and vertical-specific stylesheets
-var addCSS = function () {
-  $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
-  $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
-  
-  // console.log(pubStylesheet);
 }
