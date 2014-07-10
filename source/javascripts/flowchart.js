@@ -54,7 +54,6 @@
 
   // build question in flowchart - scrolldown enabled for all questions except the last one
   var buildQuestion = function(slug) {
-    addCSS();
     compareSlug(slug);
     if (currentRow == 0) {
       $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
@@ -68,14 +67,14 @@
   // write possible options to each question, handles multiple options
   var writeOptions = function(currentRow) {
     var row = input[currentRow];
-    var connects_labels = row.connectstext.split(separator);
+    var connectsLabels = row.connectstext.split(separator);
     connectsTo = row.connectsto.split(separator);
     if (connectsTo[0] == 'End') {
       $('.question-' + questionNumber).fadeIn(400);
       lastQuestion();
     } else {
-      for (var i = 0; i < connects_labels.length; i ++) {
-        $('.question-' + questionNumber).append("<button class='flowchart-button qq-button choice-" + questionNumber + "-" + i + "'>" + connects_labels[i] + "</button>");
+      for (var i = 0; i < connectsLabels.length; i ++) {
+        $('.question-' + questionNumber).append("<button class='flowchart-button qq-button choice-" + questionNumber + "-" + i + "'>" + connectsLabels[i] + "</button>");
         $('.choice-' + questionNumber + '-' + i).on('click', function() {
           var classes = $(this).attr('class').split(' ');
           number = classes[classes.length - 1].split('-');
@@ -102,8 +101,17 @@
     $('.restart').on('click', restart);
   }
 
+   // restarts flowchart from beginning
+  var restart = function() {
+    $('.quiz-container').empty();
+    scrollDown('.quiz-container');
+    questionNumber = 0;
+    slug = input[0].slug;
+    buildQuestion(slug);
+  }
+
   var link = document.URL;
-  function shareQuiz() {
+  var shareQuiz = function() {
     switch (pub) {
       case 'vox':
         account = voxdotcom;
@@ -123,15 +131,7 @@
     $(".quiz-container").append("<div class='scorecard'><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=Check out this flowchart " + link + " via @" +  account + "' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div></div>");
   }
 
-  // restarts flowchart from beginning
-  var restart = function() {
-    $('.quiz-container').empty();
-    scrollDown('.quiz-container');
-    questionNumber = 0;
-    slug = input[0].slug;
-    buildQuestion(slug);
-  }
-
+  addCSS();
   window.onload = function() {
     slug = input[0].slug;
     slug = cleanSlug(slug);
