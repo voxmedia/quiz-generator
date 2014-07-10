@@ -1,7 +1,7 @@
 (function ($) {
-  // make sure to attach json object 'var input' with quiz data
+  // make sure to attach json object 'var input' with quiz data, and define 'var pubStylesheet'
   // variables
-  var slug, currentRow, connectsTo, target, slugComparison, pub;
+  var slug, currentRow, connectsTo, currentSlug, pub, number, lastRow;
   var questionNumber = 0;
   var separator = ",";
   
@@ -16,17 +16,18 @@
   var theverge = 'verge';
   var polygon = 'polygon';
   var sbnation = 'SBNation';
+
   // attach quiz and vertical-specific stylesheets
   var addCSS = function () {
     $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
     $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
-  }
+  };
 
-  var scrollDown = function(target) {
+  var pageScroll = function(target) {
     $('html,body').animate({
        scrollTop: $(target).offset().top - 30
     }, 1000);
-  }
+  };
 
   // get next slug to build question, disable previous question's buttons
   var getSlug = function(newslug, selection) {
@@ -34,35 +35,35 @@
     $('.flowchart-button').attr('disabled', true);
     slug = newslug;
     buildQuestion(slug);
-  }
+  };
 
   // clean slug
   var cleanSlug = function(slug) {
     slug = slug.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
     return slug;
-  }
+  };
 
   var compareSlug = function(slug) {
     for (var i = 0; i < input.length; i++) {
-      slugComparison = cleanSlug(input[i].slug);
-      if (slugComparison == slug) {
+      currentSlug = cleanSlug(input[i].slug);
+      if (currentSlug == slug) {
         currentRow = i;
         break;
       }
     }
-  }
+  };
 
   // build question in flowchart - scrolldown enabled for all questions except the last one
   var buildQuestion = function(slug) {
     compareSlug(slug);
-    if (currentRow == 0) {
+    if (currentRow === 0) {
       $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
     } else {
       $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
-      scrollDown(".question-" + (questionNumber));
+      pageScroll(".question-" + (questionNumber));
     }
     writeOptions(currentRow);
-  }
+  };
 
   // write possible options to each question, handles multiple options
   var writeOptions = function(currentRow) {
@@ -75,40 +76,42 @@
     } else {
       for (var i = 0; i < connectsLabels.length; i ++) {
         $('.question-' + questionNumber).append("<button class='flowchart-button qq-button choice-" + questionNumber + "-" + i + "'>" + connectsLabels[i] + "</button>");
-        $('.choice-' + questionNumber + '-' + i).on('click', function() {
-          var classes = $(this).attr('class').split(' ');
-          number = classes[classes.length - 1].split('-');
-          getSlug(cleanSlug(connectsTo[number[number.length- 1]]), this);
-        });
+        $('.choice-' + questionNumber + '-' + i).on('click', getClass);
       }
       $('.question-' + questionNumber).fadeIn(400);
       questionNumber++;
     }
-  }
+  };
+
+  var getClass = function () {
+    var classes = $(this).attr('class').split(' ');
+    number = classes[classes.length - 1].split('-');
+    getSlug(cleanSlug(connectsTo[number[number.length- 1]]), this);
+  };
 
   // handles last question and social media sharing buttons
   var lastQuestion = function() {
     for (var i = 0; i < input.length; i++) {
       input[i].slug = cleanSlug(input[i].slug);
       if (input[i].slug == 'end') {
-        theEndRow = i;
+        lastRow = i;
         break;
       }
     }
-    $('.question-' + questionNumber).append('<div class="last"><p>' + input[theEndRow].text + '</p><br/>');
+    $('.question-' + questionNumber).append('<div class="last"><p>' + input[lastRow].text + '</p><br/>');
     $('.quiz-container').append('<button class="flowchart-button qq-button restart">Restart</button></div>');
     shareQuiz();
     $('.restart').on('click', restart);
-  }
+  };
 
    // restarts flowchart from beginning
   var restart = function() {
     $('.quiz-container').empty();
-    scrollDown('.quiz-container');
+    pageScroll('.quiz-container');
     questionNumber = 0;
     slug = input[0].slug;
     buildQuestion(slug);
-  }
+  };
 
   var link = document.URL;
   var shareQuiz = function() {
@@ -129,12 +132,12 @@
         account = 'voxproduct';
     }
     $(".quiz-container").append("<div class='scorecard'><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=Check out this flowchart " + link + " via @" +  account + "' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div></div>");
-  }
+  };
 
   addCSS();
   window.onload = function() {
     slug = input[0].slug;
     slug = cleanSlug(slug);
     buildQuestion(slug);
-  }
+  };
 })(jQuery);
