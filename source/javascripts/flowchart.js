@@ -1,5 +1,6 @@
 (function ($) {
   // make sure to attach json object 'var input' with quiz data, and define 'var pubStylesheet'
+  
   // variables
   var slug, currentRow, connectsTo, currentSlug, pub, number, lastRow;
   var questionNumber = 0;
@@ -19,6 +20,7 @@
 
   // attach quiz and vertical-specific stylesheets
   var addCSS = function () {
+    // $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/flowchart.css" type="text/css" />');
     $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
     $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
   };
@@ -59,8 +61,13 @@
     if (currentRow === 0) {
       $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
     } else {
-      $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
-      pageScroll(".question-" + (questionNumber));
+      if ($(window).width() > 500) {
+        $(".quiz-container").append("<div class='question-" + questionNumber + "' style='display:none;'><div class='question'>" + input[currentRow].text + "</div></div>");
+        $(".question-" + (questionNumber)).fadeIn('slow');
+      } else {
+        $(".quiz-container").append("<div class='question-" + questionNumber + "'><div class='question'>" + input[currentRow].text + "</div></div>");
+        pageScroll(".question-" + (questionNumber));
+      }
     }
     writeOptions(currentRow);
   };
@@ -139,5 +146,5 @@
     slug = input[0].slug;
     slug = cleanSlug(slug);
     buildQuestion(slug);
-  };
+  }
 })(jQuery);

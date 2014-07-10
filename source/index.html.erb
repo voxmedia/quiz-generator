@@ -27,7 +27,7 @@
 
   <div class="embed" style="margin-top: 30px; margin-bottom: 60px;">
     <h5>Generate, copy and paste this code into Chorus</h5>
-    <center><p><button id="build" onclick="submitquiz()">Generate your quiz</button><p>
+    <center><p><button id="build">Generate your quiz</button><p>
     <p><textarea type="text" name="embedcode" id="embedcode" style="height: 150px; overflow:auto;"></textarea></center></p>
   </div>
 
@@ -39,12 +39,6 @@
   <div class="quiz-container"></div>
 </div>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('input:radio[name=quiz-type]').click(function() {
-      quizType = $('input:radio[name=quiz-type]:checked').val();
-      changeTemplate();
-    });
-    submitquiz();
-  });
-</script>
+<script src="javascripts/jquery.min.js"></script>
+<script src="javascripts/tabletop.js"></script>
+<script src="javascripts/getdata.js"></script>

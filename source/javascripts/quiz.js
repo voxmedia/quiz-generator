@@ -1,5 +1,6 @@
 (function ($) {
   // make sure to attach json object 'var input' with quiz data
+  
   //variables
   var answer,
       qnumber,

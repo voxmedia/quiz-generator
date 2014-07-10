@@ -15,9 +15,9 @@ $question-font: 'Balto', sans-serif;
   text-align: center;
   background-color: #FFFFFF;
   margin: 0 auto;
-  padding-bottom: 20px;
   max-width: 770px;
   width: 100%;
+  padding-bottom: 1em;
 }
 
 .choices {
@@ -45,29 +45,30 @@ button.flowchart-button {
 
 .question {
   margin-top: 1.5em !important;
+  padding: 0 0.6em 0 0.6em;
+  p {
+    font-family: $question-font;
+    font-size: 1.2em;
+    font-weight: 800;
+  }
 }
 
 .scorecard {
   margin-top: 15px;
 }
 
-.question p {
-  font-family: $question-font;
-  font-size: 1.2em;
-  font-weight: 800;
-}
-
 .last {
   margin: 0 auto;
   margin-top: 2em;
-  width: 50%;
-  min-width: 400px;
+  width: 70%;
+  min-width: 200px;
   border-top: 1px solid #ececec;
-}
 
-.last p {
-  margin-top: 2em;
-  margin-bottom: 0px;
+  p {
+    margin-top: 2em;
+    margin-bottom: 0px;
+    line-height: 1.5em;
+  }
 }
 
 #social-media {
