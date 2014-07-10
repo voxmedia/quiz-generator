@@ -142,12 +142,9 @@
   };
 
   addCSS();
-  slug = input[0].slug;
-  slug = cleanSlug(slug);
-  buildQuestion(slug);
-  // window.onload = function() {
-  //   slug = input[0].slug;
-  //   slug = cleanSlug(slug);
-  //   buildQuestion(slug);
-  // }
+  $(document).ready(function(){
+    slug = input[0].slug;
+    slug = cleanSlug(slug);
+    buildQuestion(slug);
+  });
 })(jQuery);
