@@ -24,6 +24,10 @@ $question-font: 'Balto', sans-serif;
   text-align: center;
 }
 
+div.buttons {
+  display:inline;
+}
+
 button.flowchart-button {
   @include transition(0.2s);
   font-size: .9em;
@@ -41,6 +45,11 @@ button.flowchart-button {
   &:hover {
     background-color: #f37b21;
   }
+}
+
+p.down-arrow {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .question {

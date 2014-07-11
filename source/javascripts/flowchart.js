@@ -34,6 +34,9 @@
   // get next slug to build question, disable previous question's buttons
   var getSlug = function(newslug, selection) {
     $(selection).addClass('flowchart-selected');
+    var parent = ($(selection).parent());
+    var moveArrow = $(selection).position().left + 55;
+    $(parent).after('<i style="position:absolute; left:' + moveArrow + 'px;" class="fa fa-long-arrow-down"></i>');
     $('.flowchart-button').attr('disabled', true);
     slug = newslug;
     buildQuestion(slug);
