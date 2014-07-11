@@ -36,7 +36,7 @@
     $(selection).addClass('flowchart-selected');
     var parent = ($(selection).parent());
     var moveArrow = $(selection).position().left + 55;
-    $(parent).after('<i style="position:absolute; left:' + moveArrow + 'px;" class="fa fa-long-arrow-down"></i>');
+    $(parent).after('<div style="position:absolute; left:' + moveArrow + 'px;" class="arrow-down">&darr;</div>');
     $('.flowchart-button').attr('disabled', true);
     slug = newslug;
     buildQuestion(slug);
