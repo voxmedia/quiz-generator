@@ -83,7 +83,7 @@ ol.answers > li {
   color: #FF0052;
   text-decoration: none;
   &:hover {
-    color: $purple;
+    text-decoration: underline;
   }
 }
 

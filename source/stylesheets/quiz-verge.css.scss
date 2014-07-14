@@ -101,7 +101,7 @@ ol.answers > li {
   color: $bright-red;
   text-decoration: none;
   &:hover {
-    color: #000000;
+    text-decoration: underline;
   }
 }
 
