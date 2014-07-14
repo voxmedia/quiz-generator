@@ -60,7 +60,7 @@ ol.answers > li {
 
 // Submit button color when an answer is selected
 .submit-highlight {
-  background-color: #dfdfe0;
+  background-color: #cacbcc;
 }
 
 // Checking selected answer
@@ -107,14 +107,16 @@ ol.answers > li {
 
 // Hyperlinks
 .answer a {
-  color: $blue;
+  color: #6d98a8;
   text-decoration: none;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
   &:hover {
-    color: #000000;
+    text-decoration:underline;
   }
 }
 
-// FLowchart selection
+// Flowchart selection
 .flowchart-selected {
   background-color: $blue !important;
 }
