@@ -17,6 +17,12 @@ $purple: #3F1E45;
   margin-bottom: 20px;
 }
 
+// Description for each question
+.qq-description {
+  font-family: $font-stack;
+  padding: 20px 20px 0px 20px;
+}
+
 // Answer options for each question
 ol.answers > li {
   font-family: $font-stack;

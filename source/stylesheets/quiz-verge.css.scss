@@ -21,6 +21,11 @@ $bright-red: #FB4834;
   margin-bottom: 20px;
 }
 
+// Description for each question
+.qq-description {
+  padding: 20px 15px 0px 15px;
+}
+
 // Answer options for each question
 ol.answers > li {
   font-family: Helvetica, sans-serif;
