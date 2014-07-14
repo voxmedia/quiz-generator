@@ -20,6 +20,11 @@ $blue: #bfd1df;
   margin-top: 0px;
 }
 
+// Description for each question
+.qq-description {
+  font-family: $font-stack;
+}
+
 // Answer options for each question
 ol.answers > li {
   font-family: $font-stack;

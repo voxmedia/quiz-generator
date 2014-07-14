@@ -22,8 +22,8 @@
   
   // attach quiz and vertical-specific stylesheets
   var addCSS = function () {
-    $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz.css" type="text/css" />');
-    // $('head').append('<link rel="stylesheet" href="stylesheets/quiz.css" type="text/css" />');
+    //$('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz.css" type="text/css" />');
+     $('head').append('<link rel="stylesheet" href="stylesheets/quiz.css" type="text/css" />');
     $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
     buildQuiz();
   }
@@ -31,7 +31,7 @@
   // write questions and answers on html
   var buildQuiz = function () {
     qnumber = currentQuestion + 1;
-    $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='question'>" + input[currentQuestion].question + "</div>" +
+    $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='question'><div class='qq-description'>" + input[currentQuestion].description + "</div><br>" + input[currentQuestion].question + "</div>" +
       "<ol class='answers'><li id='option-a'>" + input[currentQuestion].a + "</li>" +
       "<li id='option-b'>" + input[currentQuestion].b + "</li>" +
       "<li id='option-c'>" + input[currentQuestion].c + "</li>" +
