@@ -31,7 +31,7 @@
   // write questions and answers on html
   var buildQuiz = function () {
     qnumber = currentQuestion + 1;
-    $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='question'><div class='qq-description'>" + input[currentQuestion].description + "</div><br>" + input[currentQuestion].question + "</div>" +
+    $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='qq-question'><div class='qq-description'>" + input[currentQuestion].description + "</div><br><div class='question'>" + input[currentQuestion].question + "</div></div>" +
       "<ol class='answers'><li id='option-a'>" + input[currentQuestion].a + "</li>" +
       "<li id='option-b'>" + input[currentQuestion].b + "</li>" +
       "<li id='option-c'>" + input[currentQuestion].c + "</li>" +

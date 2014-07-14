@@ -21,7 +21,7 @@
 }
 
 // Each quiz question
-.question {
+.qq-question {
   font-size: 1.17em;
   max-width: 80%;
   margin: 0% auto;
@@ -35,7 +35,12 @@
   font-weight: 300;
   text-align: left;
   line-height: 1.5;
-  padding: 5px 30px 0px 30px;
+  padding: 20px 30px 0px 30px;
+}
+
+// Padding for question text
+.question {
+  padding-top: 10px;
 }
 
 // Shows user's progress throughout quiz (i.e. question 3/5)
