@@ -19,6 +19,11 @@ $red: #C52327;
   margin-bottom: 20px;
 }
 
+// Description for each question
+.qq-description {
+  font-family: $font-stack;
+}
+
 // Answer options for each question
 ol.answers > li {
   font-family: $font-stack;
