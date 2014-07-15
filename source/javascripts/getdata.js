@@ -61,7 +61,7 @@ function buildquiz(){
 }
 
 function buildflowchart() {
-	url = $('#url').val();
+  url = $('#url').val();
   init();
   getStylesheet();
 }
