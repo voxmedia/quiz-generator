@@ -3,6 +3,7 @@
   
   //variables
   var answer,
+      pub,
       qnumber,
       score = 0,
       currentQuestion = 0;
