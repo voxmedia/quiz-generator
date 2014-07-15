@@ -37,11 +37,11 @@
       "<li id='option-c'>" + input[currentQuestion].c + "</li>" +
       "<li id='option-d'>" + input[currentQuestion].d + "</li></ol>" +
       "<button class='qq-button hint'>Need a hint?</button>" +
-      "<button class='qq-button submit'>Submit answer</button>" +
+      "<button class='qq-button submit-answer'>Submit answer</button>" +
       "<div class='answer'></div>");
     selectAnswer();
     $('.hint').on('click', showHint);
-    $('.submit').on('click', checkAnswer);
+    $('.submit-answer').on('click', checkAnswer);
   }
 
   // shows (1) out of (3) questinos
@@ -54,7 +54,7 @@
     $("li").click(function() {
       $(".selected").removeClass("selected");
       $(this).addClass("selected");
-      $(".submit").addClass("submit-highlight").fadeIn();
+      $(".submit-answer").addClass("submit-highlight").fadeIn();
     });
   }
 
