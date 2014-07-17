@@ -102,7 +102,6 @@
   }
 
   function trackEvent() {
-    console.log(arguments);
     if( typeof(_gaq) != 'undefined' )
       _gaq.push($.merge(['_trackEvent', 'quiz'], arguments));
   }
