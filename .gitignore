@@ -13,5 +13,6 @@
 
 # Ignore .DS_store file
 .DS_Store
+source/.DS_Store
 
 /test

@@ -51,6 +51,7 @@
 
   // style changes when user selects answers
   var selectAnswer = function () {
+    _gaq.push(['_trackEvent', 'quiz', 'answers', 'User selected an answer']);
     $("li").click(function() {
       $(".selected").removeClass("selected");
       $(this).addClass("selected");
@@ -60,11 +61,13 @@
 
   // show hint
   var showHint = function () {
+    _gaq.push(['_trackEvent', 'quiz', 'hint', 'User clicked on hint button']);
     $(".answer").html(input[currentQuestion].hint);
   }
 
   // check answer by comparing selected html and correct answer from input
   var checkAnswer = function () {
+    _gaq.push(['_trackEvent', 'quiz', 'submit', 'User submitted answer for one question']);
     $("li").off('click');
     $(".hint").off('click');
     if ($(".selected").length > 0) {
@@ -90,6 +93,7 @@
 
   // increment question count and built new question and answers
   var nextQuestion = function () {
+    _gaq.push(['_trackEvent', 'quiz', 'next', 'User clicked to the next question']);
     currentQuestion++;
     buildQuiz();
   }
@@ -97,6 +101,7 @@
   // display final score card and social media sharing
   var link = document.URL
     var finalScore = function () {
+      _gaq.push(['_trackEvent', 'quiz', 'final-score', 'User clicked on final score button']);
       switch (pub) {
       case 'vox':
         account = voxdotcom;
