@@ -1,6 +1,6 @@
 (function ($) {
   // make sure to attach json object 'var input' with quiz data
-  
+
   //variables
   var answer,
       qnumber,
@@ -19,15 +19,6 @@
   var polygon = 'polygon';
   var sbnation = 'SBNation';
 
-  
-  // attach quiz and vertical-specific stylesheets
-  var addCSS = function () {
-    $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz.css" type="text/css" />');
-    //$('head').append('<link rel="stylesheet" href="stylesheets/quiz.css" type="text/css" />');
-    $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
-    buildQuiz();
-  }
-
   // write questions and answers on html
   var buildQuiz = function () {
     qnumber = currentQuestion + 1;
@@ -42,6 +33,7 @@
     selectAnswer();
     $('.hint').on('click', showHint);
     $('.submit-answer').on('click', checkAnswer);
+    trackEvent('q' + qnumber + '-displayed', 'Q' + qnumber + ' displayed');
   }
 
   // shows (1) out of (3) questinos
@@ -51,8 +43,10 @@
 
   // style changes when user selects answers
   var selectAnswer = function () {
-    _gaq.push(['_trackEvent', 'quiz', 'answers', 'User selected an answer']);
     $("li").click(function() {
+      trackEvent(
+        'q' + qnumber + '-selected-' + this.id,
+        'Q' + qnumber + ' selected ' + this.id);
       $(".selected").removeClass("selected");
       $(this).addClass("selected");
       $(".submit-answer").addClass("submit-highlight").fadeIn();
@@ -61,24 +55,31 @@
 
   // show hint
   var showHint = function () {
-    _gaq.push(['_trackEvent', 'quiz', 'hint', 'User clicked on hint button']);
+    trackEvent(
+      'q' + qnumber + '-hint-showed',
+      'Q' + qnumber + ' hint showed');
     $(".answer").html(input[currentQuestion].hint);
   }
 
   // check answer by comparing selected html and correct answer from input
   var checkAnswer = function () {
-    _gaq.push(['_trackEvent', 'quiz', 'submit', 'User submitted answer for one question']);
     $("li").off('click');
     $(".hint").off('click');
     if ($(".selected").length > 0) {
 
       answer = $(".selected").html();
       if (answer == input[currentQuestion].answer) {
+        trackEvent(
+          'q' + qnumber + '-answered-correctly',
+          'Q' + qnumber + ' answered correctly');
         score++;
         displayProgress();
         $(".answer").html("<p>Correct!</p><p>" + input[currentQuestion].correct + "</p>");
 
       } else {
+        trackEvent(
+          'q' + qnumber + '-answered-incorrectly',
+          'Q' + qnumber + ' answered incorrectly');
         $(".answer").html("<p>Sorry!</p><p> " + input[currentQuestion].incorrect + "&nbsp;The correct answer is " + input[currentQuestion].answer + ".</p>");
       }
       if (currentQuestion != (input.length-1)) {
@@ -93,16 +94,27 @@
 
   // increment question count and built new question and answers
   var nextQuestion = function () {
-    _gaq.push(['_trackEvent', 'quiz', 'next', 'User clicked to the next question']);
+    trackEvent(
+      'q' + qnumber + '-next',
+      'Q' + qnumber + ' clicked to next question');
     currentQuestion++;
     buildQuiz();
   }
 
+  function trackEvent() {
+    console.log(arguments);
+    if( typeof(_gaq) != 'undefined' )
+      _gaq.push($.merge(['_trackEvent', 'quiz'], arguments));
+  }
+
   // display final score card and social media sharing
   var link = document.URL
-    var finalScore = function () {
-      _gaq.push(['_trackEvent', 'quiz', 'final-score', 'User clicked on final score button']);
-      switch (pub) {
+  var finalScore = function () {
+    trackEvent(
+      'scored-' + score + '-of-' + input.length,
+      'Scored ' + score + ' of ' + input.length);
+    trackEvent('completed', 'Quiz completed');
+    switch (pub) {
       case 'vox':
         account = voxdotcom;
         break;
@@ -118,12 +130,27 @@
       default:
         account = 'voxproduct';
     }
-    
-    $(".quiz-container").html("<div class='scorecard'><p>You correctly answered</p><p>" + score + "&nbsp;out of&nbsp;" + input.length + "</p><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=I scored " + score + "/" + input.length + " on this quiz " + link + " via @" + account + "' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div><p>Challenge your friends!</p></div>");
+
+    $(".quiz-container")
+      .html("<div class='scorecard'><p>You correctly answered</p><p>" + score + "&nbsp;out of&nbsp;" + input.length + "</p><div id='social-media'><ul><li><a class=\"fb-share\" href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a class=\"twitter-share\" href='http://twitter.com/home?status=I scored " + score + "/" + input.length + " on this quiz " + link + " via @" + account + "' target='_blank'>" + twitter   + "</a></li><li><a class=\"gplus-share\" href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div><p>Challenge your friends!</p></div>");
+    $('.quiz-container .fb-share').click(function() {
+      trackEvent('shared-on-fb', 'Quiz shared on Facebook');
+    });
+    $('.quiz-container .twitter-share').click(function() {
+      trackEvent('shared-on-twitter', 'Quiz shared on Twitter');
+    });
+    $('.quiz-container .gplus-share').click(function() {
+      trackEvent('shared-on-gplus', 'Quiz shared on Google+');
+    });
   }
 
-  addCSS();
-  window.onload = function () {
+  // attach quiz and vertical-specific stylesheets
+  $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz.css" type="text/css" />');
+  //$('head').append('<link rel="stylesheet" href="stylesheets/quiz.css" type="text/css" />');
+  $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
+
+  $(document).ready(function () {
+    trackEvent('loaded', 'Quiz is loaded');
     buildQuiz();
-  }
+  });
 })(jQuery);
