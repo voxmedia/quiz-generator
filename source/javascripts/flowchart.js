@@ -34,6 +34,9 @@
   // get next slug to build question, disable previous question's buttons
   var getSlug = function(newslug, selection) {
     $(selection).addClass('flowchart-selected');
+    trackEvent(
+        'q' + questionNumber + '-selected-' + this.class,
+        'Q' + questionNumber + ' selected ' + this.class);
     var parent = ($(selection).parent());
     var moveArrow = $(selection).position().left + 55;
     $(parent).after('<div style="position:absolute; left:' + moveArrow + 'px;" class="arrow-down">&darr;</div>');
@@ -73,6 +76,7 @@
       }
     }
     writeOptions(currentRow);
+    trackEvent('q' + questionNumber + '-displayed', 'Q' + questionNumber + ' displayed');
   };
 
   // write possible options to each question, handles multiple options
@@ -111,22 +115,27 @@
     $('.question-' + questionNumber).append('<div class="last"><p>' + input[lastRow].text + '</p><br/>');
     $('.quiz-container').append('<button class="flowchart-button qq-button restart">Restart</button></div>');
     shareQuiz();
+    trackEvent('completed', 'Flowchart completed');
     $('.restart').on('click', restart);
   };
 
-   // restarts flowchart from beginning
+  // restarts flowchart from beginning
   var restart = function() {
     $('.quiz-container').empty();
     pageScroll('.quiz-container');
     questionNumber = 0;
     slug = input[0].slug;
     buildQuestion(slug);
+    trackEvent('restart', 'Flowchart restarted');
   };
 
-  function trackEvent() {
-    if( typeof(_gaq) != 'undefined' )
+  function trackEvent(action, label) {
+    if( typeof(ga) != 'undefined' ) {
+      ga('send', 'event', 'flowchart', action, label);
+    } else if (typeof(_gaq) != 'undefined' ){
       _gaq.push($.merge(['_trackEvent', 'flowchart'], arguments));
-  };
+    }
+  }
 
   // social media sharing
   var link = document.URL;
@@ -148,10 +157,21 @@
         account = 'voxproduct';
     }
     $(".quiz-container").append("<div class='scorecard'><div id='social-media'><ul><li><a href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'>" + facebook + "</a></li><li><a href='http://twitter.com/home?status=Check out this flowchart " + link + " via @" +  account + "' target='_blank'>" + twitter   + "</a></li><li><a href='https://plus.google.com/share?url=" + link + "' target='_blank'>" + google + "</a></li></ul></div></div>");
+
+    $('.quiz-container .fb-share').click(function() {
+      trackEvent('shared-on-fb', 'Quiz shared on Facebook');
+    });
+    $('.quiz-container .twitter-share').click(function() {
+      trackEvent('shared-on-twitter', 'Quiz shared on Twitter');
+    });
+    $('.quiz-container .gplus-share').click(function() {
+      trackEvent('shared-on-gplus', 'Quiz shared on Google+');
+    });
   };
 
   addCSS();
   $(document).ready(function(){
+    trackEvent('loaded', 'Quiz is loaded');
     slug = input[0].slug;
     slug = cleanSlug(slug);
     buildQuestion(slug);
