@@ -1,4 +1,4 @@
-var input, key, pub, quizType; 
+var input, key, pub, quizType;
 
 // initialize tabletop library
 function init() {
@@ -8,9 +8,31 @@ function init() {
 	}
 
 function readData(data, tabletop) {
-	input = data;
+	input = [];
+	for ( var i = 0; i < data.length; i++ ) {
+		input[i] = findUrlinObject( data[i] );
+	}
 	addJS();
 	embed();
+}
+
+function findUrlinObject ( data ) {
+	$.each( data, function( key, value ){
+		if ( key == 'correct' || key == 'incorrect' ) {
+			data[key] = converttoHex( data[key] );
+		}
+	} );
+	return data;
+}
+
+function converttoHex ( string ) {
+	var hex, i;
+	var result = "";
+	for ( i = 0; i < string.length; i++ ) {
+		hex = string.charCodeAt( i ).toString( 16 );
+		result += ( "000" + hex ).slice( -4 );
+	}
+	return result;
 }
 
 function addJS() {

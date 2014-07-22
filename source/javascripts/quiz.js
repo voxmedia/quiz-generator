@@ -20,7 +20,7 @@
   var sbnation = 'SBNation';
 
   // write questions and answers on html
-  var buildQuiz = function () {
+  var buildQuiz = function ( input ) {
     qnumber = currentQuestion + 1;
     $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='qq-question'><div class='qq-description'>" + input[currentQuestion].description + "</div><br><div class='question'>" + input[currentQuestion].question + "</div></div>" +
       "<ol class='answers'><li id='option-a'>" + input[currentQuestion].a + "</li>" +
@@ -151,8 +151,32 @@
   //$('head').append('<link rel="stylesheet" href="stylesheets/quiz.css" type="text/css" />');
   $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
 
+  function unpackQuizHack() {
+    var newInput = [];
+    for ( var i = 0; i < input.length; i++ ) {
+      newInput[i] = convertUrlinJson( input[i] );
+    }
+    input = newInput;
+    buildQuiz( input );
+  }
+
+  function convertUrlinJson( data ) {
+    $.each( data, function( key, value ) {
+      if ( key == 'correct' || key == 'incorrect' ) {
+        var j;
+        var hexes = data[key].match(/.{1,4}/g) || [];
+        var back = "";
+        for( j = 0; j<hexes.length; j++ ) {
+          back += String.fromCharCode( parseInt( hexes[j], 16 ) );
+        }
+        data[key] = back;
+      }
+    } );
+    return data;
+  }
+
   $(document).ready(function () {
     trackEvent('loaded', 'Quiz is loaded');
-    buildQuiz();
+    unpackQuizHack();
   });
 })(jQuery);
