@@ -123,6 +123,12 @@
     buildQuestion(slug);
   };
 
+  function trackEvent() {
+    if( typeof(_gaq) != 'undefined' )
+      _gaq.push($.merge(['_trackEvent', 'flowchart'], arguments));
+  };
+
+  // social media sharing
   var link = document.URL;
   var shareQuiz = function() {
     switch (pub) {
