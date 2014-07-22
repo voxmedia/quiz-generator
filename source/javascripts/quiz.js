@@ -101,9 +101,12 @@
     buildQuiz();
   }
 
-  function trackEvent() {
-    if( typeof(_gaq) != 'undefined' )
+  function trackEvent(action, label) {
+    if( typeof(ga) != 'undefined' ) {
+      ga('send', 'event', 'quiz', action, label);
+    } else if (typeof(_gaq) != 'undefined' ){
       _gaq.push($.merge(['_trackEvent', 'quiz'], arguments));
+    }
   }
 
   // display final score card and social media sharing
