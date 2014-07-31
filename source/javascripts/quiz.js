@@ -20,7 +20,7 @@
   var sbnation = 'SBNation';
 
   // write questions and answers on html
-  var buildQuiz = function ( input ) {
+  var buildQuiz = function (input) {
     qnumber = currentQuestion + 1;
     $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='qq-question'><div class='qq-description'>" + input[currentQuestion].description + "</div><br><div class='question'>" + input[currentQuestion].question + "</div></div>" +
       "<ol class='answers'><li id='option-a'>" + input[currentQuestion].a + "</li>" +
@@ -98,7 +98,7 @@
       'q' + qnumber + '-next',
       'Q' + qnumber + ' clicked to next question');
     currentQuestion++;
-    buildQuiz();
+    buildQuiz(input);
   }
 
   function trackEvent(action, label) {
@@ -157,7 +157,7 @@
       newInput[i] = convertUrlinJson( input[i] );
     }
     input = newInput;
-    buildQuiz( input );
+    buildQuiz(input);
   }
 
   function convertUrlinJson( data ) {
