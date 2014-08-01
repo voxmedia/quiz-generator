@@ -21,8 +21,15 @@
   var eater = 'Eater';
   var racked = 'Racked';
 
+  var pageScroll = function(target) {
+    $('html,body').animate({
+       scrollTop: $(target).offset().top - 30
+    }, 1000);
+  };
+
   // write questions and answers on html
   var buildQuiz = function (input) {
+    pageScroll('.quiz-container');
     qnumber = currentQuestion + 1;
     $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='qq-question'><div class='qq-description'>" + input[currentQuestion].description + "</div><br><div class='question'>" + input[currentQuestion].question + "</div></div>" +
       "<ol class='answers'><li id='option-a'>" + input[currentQuestion].a + "</li>" +
