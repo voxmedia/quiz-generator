@@ -67,6 +67,7 @@
 
   function getStylesheet() {
   	pub = $('input[name="pub"]:checked').val();
+    $('body').append('<script type="text/javascript">var pub ="' + pub + '"</script>');
     pubStylesheet = "http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/quiz-" + pub + ".css";
     // pubStylesheet = "/stylesheets/quiz-" + pub + ".css";
   }

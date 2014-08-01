@@ -18,6 +18,8 @@
   var theverge = 'verge';
   var polygon = 'polygon';
   var sbnation = 'SBNation';
+  var eater = 'Eater';
+  var racked = 'Racked';
 
   // write questions and answers on html
   var buildQuiz = function (input) {
@@ -129,6 +131,12 @@
       case 'polygon':
         account = polygon;
         break;
+      case 'eater':
+        account = eater;
+      break;
+      case 'racked':
+        account = racked;
+      break;
       default:
         account = 'voxproduct';
     }
