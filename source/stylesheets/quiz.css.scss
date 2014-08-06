@@ -97,12 +97,21 @@ ol.answers {
   border: 0;
 }
 
+.next:hover {
+  background: transparent;
+}
+
 // Highlights selected answer
 .selected {
   background-color: #dfdfe0;
+  font-weight: bold;
 }
 
 // Displays final scorecard
+.scorecard {
+  display:block !important;
+}
+
 .score {
   font-size: .8em;
   float: right;
