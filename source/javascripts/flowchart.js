@@ -163,8 +163,8 @@
   };
 
   // attach quiz and vertical-specific stylesheets
-  $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/flowchart.css" type="text/css" />');
-  // $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
+  // $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/flowchart.css" type="text/css" />');
+  $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
   $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
   
   $(document).ready(function(){

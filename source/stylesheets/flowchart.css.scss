@@ -36,9 +36,8 @@ button.flowchart-button {
   background-color: #ececec;
   cursor: pointer; 
   width: 120px;
-  margin: 0.1em 1em 1em 0;
+  margin: 0.1em 1em 0.4em 0;
   border: 0;
-  margin-top: 5px;
   padding: 12px 0px;
   padding: 8px 10px;
   
@@ -53,8 +52,9 @@ p.down-arrow {
 }
 
 .question {
-  margin-top: 1.5em !important;
-  padding: 0 0.6em 0 0.6em;
+  margin-top: 2.5em !important;
+  margin-bottom: 0.4em;
+  padding: 0 0.6em 0.6em;
   p {
     font-family: $question-font;
     font-size: 1.2em;
