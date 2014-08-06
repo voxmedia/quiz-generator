@@ -18,13 +18,6 @@
   var polygon = 'polygon';
   var sbnation = 'SBNation';
 
-  // attach quiz and vertical-specific stylesheets
-  var addCSS = function () {
-    $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/flowchart.css" type="text/css" />');
-    // $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
-    $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
-  };
-
   var pageScroll = function(target) {
     $('html,body').animate({
        scrollTop: $(target).offset().top - 30
@@ -169,7 +162,11 @@
     });
   };
 
-  addCSS();
+  // attach quiz and vertical-specific stylesheets
+  $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/flowchart.css" type="text/css" />');
+  // $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
+  $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
+  
   $(document).ready(function(){
     trackEvent('loaded', 'Quiz is loaded');
     slug = input[0].slug;
