@@ -74,10 +74,9 @@
 
   // check answer by comparing selected html and correct answer from input
   var checkAnswer = function () {
-    $("li").off('click');
-    $(".hint").off('click');
     if ($(".selected").length > 0) {
-
+      $('li').off('click');
+      $(".hint").off('click');
       answer = $(".selected").html();
       if (answer == input[currentQuestion].answer) {
         trackEvent(
