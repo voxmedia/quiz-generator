@@ -27,11 +27,11 @@ This app uses Middleman, so cd to your project directory and just run:
 
 ## How does the tool work?
 
-The quiz tool is powered by (you guessed it!) Google Spreadsheets. Editors use a Google Spreadsheet Template to input the content of the quiz. For each question, there is the question, four choices, correct answer, incorrect message, correct message and a hint. Once the editor is done, they will publish the spreadsheet to the web, and grab the public URL.
+The quiz tool is powered by (you guessed it!) Google Spreadsheets. Editors use a Google Spreadsheet Template to input the content of the quiz. For each question, they enter the question text, four choices, an optional question description, the correct answer, incorrect message, correct message and a hint. Once the editor is done, they publish the spreadsheet to the web and grab its public URL.
 
-The editor then feeds the spreadsheet url into our authoring tool, which uses tabletop.js to collect the spreadsheet data. In order to make the tool more reliable, the authoring tool uses tabletop.js to collect the spreadsheet data into a json object, which is then attached to the embed code. This means that the quiz code will need to be regenerated every time a change is made, but the quiz will be more stable since it does not hit Google Spreadsheet every time it loads.
+The editor then feeds the spreadsheet URL into our authoring tool, which uses Tabletop.js to collect the spreadsheet data. In order to make the tool more reliable, the authoring tool uses Tabletop.js to collect the spreadsheet data into a JSON object, which is then attached to the embed code. This means that the quiz embed code will need to be regenerated every time a change is made in the spreadsheet, but the quiz will be more stable since it does not rely on accessing Google Spreadsheets every time it loads.
 
-In the authoring tool, the editor can pick a vertical within Vox. A vertical-specific stylesheet URL is then generated, e.g. quiz-vox.css. That together with the quiz data is parsed together with a script tag with the quiz.js library. All of these files are hosted on s3 right now. Now editors can copy-and-paste the embed code in the CMS and Voilà!
+Next, the editor picks from one of Vox Media’s verticals (the tool currently supports Vox.com, SB Nation, The Verge, Polygon, Eater and Racked). A vertical-specific stylesheet URL is then generated, e.g. quiz-vox.css. The stylesheet, together with the quiz data, is parsed together with a script tag using the quiz.js library. All of these files are currently hosted on Amazon S3. Now, editors can copy and paste the embed code into the CMS and voilà -- an interactive quiz without touching any code!
 
 
 
