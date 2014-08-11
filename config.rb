@@ -12,6 +12,7 @@
 ###
 
 page "/demo.html", :layout => "demo"
+page "/racked.html", :layout => "demo"
 page "/flowchart.html", :layout => "flowchart"
 page "/flowchart-design.html", :layout => "flowchart"
 set :css_dir, 'stylesheets'
