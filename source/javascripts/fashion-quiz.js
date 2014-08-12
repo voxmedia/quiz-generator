@@ -71,12 +71,18 @@ function checkAnswer() {
       })
     }
   }
-  currentQuestion++;
-  buildQuiz(input);
+  if (currentQuestion != (input.length-1)) {
+    currentQuestion++;
+    buildQuiz(input);
+  }
 }
 
 function finalScore() {
-  $('.quiz-container').html("<div class='scorecard'><h1>This is what it has become</h1></div>");
+  checkAnswer();
+  $('.quiz-container').html("<div class='scorecard'><h1>This is your score</h1></div>");
+  for (var i = 0; i < scores.length; i++) {
+    $(".quiz-container").append("<p>" + scores[i].key + ": " + scores[i].value + "</p>");
+  }
 }
 
 $(document).ready(function(){
