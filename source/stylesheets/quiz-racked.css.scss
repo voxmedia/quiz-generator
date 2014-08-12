@@ -16,32 +16,47 @@ $red: #C92025;
   font-weight: bold;
   color: #4C4E4D;
   font-size: 1.5em;
-  margin: 0% auto;
-  margin-bottom: 30px;
-  margin-top: 0px;
+  margin: 0 0 30px 0;
+  text-align: left;
 }
 
 // Description for each question
 .qq-description {
   font-family: $font-stack;
-  padding: 20px 30px 0px 30px;
+  text-align: left;
 }
 
 // Answer options for each question
-ol.answers > li {
-  font-family: $font-stack;
-  padding: 0px 0px 0px 10px;
-
-  &:before {
-    font-family: $question-font;
-    font-weight: bold;
-    color: #fff;
-    background-color: $red;
-    width: 25px;
-    padding: 2px 0px;
+ol.answers {
+  .dim {
+    opacity: 0.3;
   }
-  &:hover {
-    background-color: #ececec;
+  .selected {
+    opacity: 1;
+  }
+  > li {
+    font-family: $font-stack;
+    overflow:hidden;
+    display: inline-block;
+    text-align: left;
+    border: 1px solid #d3d3d3;
+    margin: 0 10px 10px 0;
+    padding: 20px;
+    &:before {
+      display: none;
+    }
+    &:hover {
+      background-color: #ececec;
+    }
+    img {
+      width: 200px;
+      height: 150px;
+    }
+    p {
+      font-family: $question-font;
+      font-weight: bold;
+      font-size: 18px;
+    }
   }
 }
 
