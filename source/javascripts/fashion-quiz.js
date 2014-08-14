@@ -22,10 +22,13 @@ function buildQuiz(input) {
   qnumber = currentQuestion + 1;
   anumber = qnumber;
   $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='qq-question'><div class='qq-description'>" + input[currentQuestion].description + "</div><br><div class='question'>" + input[currentQuestion].question + "</div></div>" +
-      "<ol class='answers'><li id='option-a'data-score='" + input[currentQuestion].avalue + "'>" + '<img src="' + input[currentQuestion].aimage + '"><p>' + input[currentQuestion].a + "</p></li>" +
-      "<li id='option-b' data-score='" + input[currentQuestion].bvalue + "'>" + '<img src="' + input[currentQuestion].bimage + '"><p>' + input[currentQuestion].b + "</p></li>" +
-      "<li id='option-c' data-score='" + input[currentQuestion].cvalue +"'>" + '<img src="' + input[currentQuestion].cimage + '"><p>' + input[currentQuestion].c + "</p></li>" +
-      "<li id='option-d' data-score='" + input[currentQuestion].dvalue +"'>" + '<img src="' + input[currentQuestion].dimage + '"><p>' + input[currentQuestion].d + "</p></li></ol>");
+      "<ol class='answers'></ol>");
+  $(".answers").append(
+    "<li id='option-a'data-score='" + input[currentQuestion].avalue + "'>" + '<img src="' + input[currentQuestion].aimage + '"><p>' + input[currentQuestion].a + "</p></li>" +
+    "<li id='option-b' data-score='" + input[currentQuestion].bvalue + "'>" + '<img src="' + input[currentQuestion].bimage + '"><p>' + input[currentQuestion].b + "</p></li>" +
+    "<li id='option-c' data-score='" + input[currentQuestion].cvalue +"'>" + '<img src="' + input[currentQuestion].cimage + '"><p>' + input[currentQuestion].c + "</p></li>" +
+    "<li id='option-d' data-score='" + input[currentQuestion].dvalue +"'>" + '<img src="' + input[currentQuestion].dimage + '"><p>' + input[currentQuestion].d + "</p></li>"
+  );
   selectAnswer();
   if (currentQuestion != (input.length-1)) {
     $('.quiz-container').append("<button class='qq-button submit-answer'>Submit answer</button>");
