@@ -103,7 +103,7 @@
     });
 
     $('#build').on('click', function(){
-       if (quizType != undefined) {
+        if (quizType != undefined) {
           submitquiz();
         }
         else {
