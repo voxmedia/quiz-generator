@@ -97,6 +97,13 @@
       changeTemplate();
     });
 
-    $('#build').on('click', submitquiz)
-  })
+    $('#build').on('click', function(){
+       if (quizType != undefined) {
+          submitquiz();
+        }
+        else {
+          alert("Please choose a quiz type at the top of the page!");
+        }
+    })
+  })  
 })(jQuery);
