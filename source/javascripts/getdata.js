@@ -40,18 +40,23 @@
   	quizType = $('input[name="quiz-type"]:checked').val();
 		if (quizType == 'quiz') {
 			$('body').append('<script src="/javascripts/quiz.js" type="text/javascript"><\/script>');
-		} else {
+		} else if (quizType == 'flowchart') {
 			$('body').append('<script src="/javascripts/flowchart.js" type="text/javascript"><\/script>');
-		}
+		} else {
+      $('body').append('<script src="/javascripts/binary.js" type="text/javascript"><\/script>');
+    }
   }
 
   function changeTemplate() {
   	if (quizType == 'quiz') {
       $('#quiz-template').attr('href', 'https://drive.google.com/previewtemplate?id=0AlMgrVuuAI0MdGl6NngwMGYtX3RHQjlic0xzNnBjUGc&mode=public').addClass('template');
       $('#example-spreadsheet').val('https://docs.google.com/spreadsheet/pub?key=0AlMgrVuuAI0MdGl6NngwMGYtX3RHQjlic0xzNnBjUGc&output=html');
-    } else {
+    } else if (quizType == 'flowchart') {
       $('#quiz-template').attr('href', 'https://drive.google.com/previewtemplate?id=0AlMgrVuuAI0MdE9ZNVhnYmk0TUdidGhiZTgwT0F6MGc&mode=public').addClass('template');
       $('#example-spreadsheet').val('https://docs.google.com/spreadsheet/pub?key=0ArcRX35HpjojdGlSR012UjVDZkpIM19ObVY5TE03U2c&output=html');
+    } else {
+      $('#quiz-template').attr('href', 'https://drive.google.com/previewtemplate?id=0AlMgrVuuAI0MdFlNdHlNay1ibnNSWU93TThTS1VuSVE&mode=public').addClass('template');
+      $('#example-spreadsheet').val('https://docs.google.com/spreadsheets/d/1UIiEZwiwsOAZ7jTZ8xzJJj35Y55Mg6TCcVR4qM_A1rg/pubhtml');
     }
   }
 
