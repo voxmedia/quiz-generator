@@ -13,12 +13,13 @@
   	for ( var i = 0; i < data.length; i++ ) {
   		input[i] = findUrlinObject( data[i] );
   	}
+    console.log(input);
   	embed(input);
   }
 
   function findUrlinObject ( data ) {
   	$.each( data, function( key, value ){
-  		if ( key == 'correct' || key == 'incorrect' ) {
+  		if ( key == 'correct' || key == 'incorrect' || key == 'text') {
   			data[key] = converttoHex( data[key] );
   		}
   	} );
@@ -37,11 +38,11 @@
 
   function addJS() {
   	quizType = $('input[name="quiz-type"]:checked').val();
-  		if (quizType == 'quiz') {
-  			$('body').append('<script src="/javascripts/quiz.js" type="text/javascript"><\/script>');
-  		} else {
-  			$('body').append('<script src="/javascripts/flowchart.js" type="text/javascript"><\/script>');
-  		}
+		if (quizType == 'quiz') {
+			$('body').append('<script src="/javascripts/quiz.js" type="text/javascript"><\/script>');
+		} else {
+			$('body').append('<script src="/javascripts/flowchart.js" type="text/javascript"><\/script>');
+		}
   }
 
   function changeTemplate() {

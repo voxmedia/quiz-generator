@@ -166,11 +166,35 @@
   $('head').append('<link rel="stylesheet" href="http://assets.sbnation.com.s3.amazonaws.com/features/quiz-generator/flowchart.css" type="text/css" />');
   // $('head').append('<link rel="stylesheet" href="/stylesheets/flowchart.css" type="text/css" />');
   $('head').append('<link rel="stylesheet" href="' + pubStylesheet + '" type="text/css" />');
-  
-  $(document).ready(function(){
-    trackEvent('loaded', 'Quiz is loaded');
+
+  function unpackQuizHack() {
+    var newInput = [];
+    for ( var i = 0; i < input.length; i++ ) {
+      newInput[i] = convertUrlinJson( input[i] );
+    }
+    input = newInput;
     slug = input[0].slug;
     slug = cleanSlug(slug);
     buildQuestion(slug);
+  }
+
+  function convertUrlinJson( data ) {
+    $.each( data, function( key, value ) {
+      if ( key == 'correct' || key == 'incorrect' || key =='text') {
+        var j;
+        var hexes = data[key].match(/.{1,4}/g) || [];
+        var back = "";
+        for( j = 0; j<hexes.length; j++ ) {
+          back += String.fromCharCode( parseInt( hexes[j], 16 ) );
+        }
+        data[key] = back;
+      }
+    } );
+    return data;
+  }
+  
+  $(document).ready(function(){
+    trackEvent('loaded', 'Quiz is loaded');
+    unpackQuizHack();
   });
 })(jQuery);
