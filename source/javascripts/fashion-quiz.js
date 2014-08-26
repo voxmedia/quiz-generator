@@ -27,7 +27,9 @@ function buildQuiz(input) {
     "<li id='option-a'data-score='" + input[currentQuestion].avalue + "'>" + '<img src="' + input[currentQuestion].aimage + '"><p>' + input[currentQuestion].a + "</p></li>" +
     "<li id='option-b' data-score='" + input[currentQuestion].bvalue + "'>" + '<img src="' + input[currentQuestion].bimage + '"><p>' + input[currentQuestion].b + "</p></li>" +
     "<li id='option-c' data-score='" + input[currentQuestion].cvalue +"'>" + '<img src="' + input[currentQuestion].cimage + '"><p>' + input[currentQuestion].c + "</p></li>" +
-    "<li id='option-d' data-score='" + input[currentQuestion].dvalue +"'>" + '<img src="' + input[currentQuestion].dimage + '"><p>' + input[currentQuestion].d + "</p></li>"
+    "<li id='option-d' data-score='" + input[currentQuestion].dvalue +"'>" + '<img src="' + input[currentQuestion].dimage + '"><p>' + input[currentQuestion].d + "</p></li>" +
+    "<li id='option-e'data-score='" + input[currentQuestion].evalue + "'>" + '<img src="' + input[currentQuestion].eimage + '"><p>' + input[currentQuestion].e + "</p></li>" +
+    "<li id='option-f'data-score='" + input[currentQuestion].fvalue + "'>" + '<img src="' + input[currentQuestion].fimage + '"><p>' + input[currentQuestion].f + "</p></li>"
   );
   selectAnswer();
   if (currentQuestion != (input.length-1)) {
