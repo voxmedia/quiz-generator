@@ -75,10 +75,10 @@ function checkAnswer() {
         value: 1
       })
     }
-  }
-  if (currentQuestion != (input.length-1)) {
-    currentQuestion++;
-    buildQuiz(input);
+    if (currentQuestion != (input.length-1)) {
+      currentQuestion++;
+      buildQuiz(input);
+    }
   }
 }
 
