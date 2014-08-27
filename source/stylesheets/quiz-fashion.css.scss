@@ -63,7 +63,7 @@ ol.answers {
   // width: 80%;
   // max-width: 500px;
   margin-bottom: 50px;
-  padding: 0px;
+  padding: 0px;1
   > li {
     &:before {
       font-size: 1em;
@@ -168,19 +168,22 @@ ol.answers {
   margin: 0px 0px 20px 0px !important;
 }
 
-// Text on final scorecard
-.scorecard p {
-  &:nth-child(1) {
-    font-size: 1.2em;
-    font-weight: bold;
-    line-height: 1em !important;
-    display: inline-block;
-    margin-top: 45px;
+.scorecard {
+  display:block;
+  overflow:hidden;
+  .scores {
+    float:left;
+    text-align: left;
   }
-  &:nth-child(2) {
-    font-size: 3em;
-    font-weight: bold;
-    margin-bottom: 40px;
-    margin-top: 5px;
+
+  .scores-img {
+    float:left;
+    width: 25%;
+    img {
+      width: 100%;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+    }
   }
 }

@@ -9,7 +9,7 @@ function getData() {
 
 function getSpreadSheet() {
   Tabletop.init({
-    key: '1kVfAkLUXOxVgtTvw-Z4MSlvVfrNr8-6XdBPtQwHQ_lI',
+    key: '1ZC3P1dBke3fV5rxsP5wcep_e6plszw0lCjB5gqArR8k',
     callback: function(data, tabletop) {
       console.log(data)
       input = data;
@@ -56,7 +56,7 @@ function checkAnswer() {
     answer = $('.selected').data('score');
     match = false;
     for (var i = 0; i < scores.length; i++) {
-      if (scores[i].key == answer) {
+      if (scores[i].key == answer && scores[i].key != "") {
         match = true;
         break;
       } else {
@@ -80,28 +80,45 @@ function checkAnswer() {
       buildQuiz(input);
     }
   }
+  console.log(scores);
+}
+
+var score_img;
+function switchImage(input) {
+  if (input == "Entry-Level") {
+    score_img = 'http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/new_city.jpg'
+  } else if (input == "90s Enthusaist") {
+    score_img = 'http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/90s.jpg'
+  } else if (input == "No. 1 Fashion Fan") {
+    score_img = 'http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/fashion_fan_girl2.jpg'
+  } else if (input == "Plant-Based") {
+    score_img = 'http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/grn_juice.jpg'
+  } else if (input == "Minimalist") {
+    score_img = 'http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/Blogger.jpg' 
+  } else if (input == "Parisian In Brooklyn") {
+    score_img = 'http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/Parisian.jpg' 
+  }
 }
 
 function finalScore() {
   checkAnswer();
   var top_score = scores[0].value;
   var top_key = scores[0].key;
-  $(".quiz-container").html("<div class='scores'><h3>Breakdown</h3></div>");
+  $(".quiz-container").html('<div class="scorecard"><div class="scores-img"></div><div class="scores"><h3>Breakdown</h3></div></div>');
   for (var i = 0; i < scores.length; i++) {
     if (scores[i].value > top_score) {
       top_score = scores[i].value;
       top_key = scores[i].key;
     }
     var percentage = (scores[i].value / (currentQuestion + 1)) * 100;
-    $(".quiz-container").append("<p>"+ scores[i].key + ": " + percentage.toFixed(0) + "%</p>");
+    $(".scores").append("<p>"+ scores[i].key + ": " + percentage.toFixed(0) + "%</p>");
   }
-  $(".quiz-container").prepend("<h1>You are a " + top_key + " girl!</h1>");
+  switchImage(top_key);
+  $(".scores-img").prepend("<img src='" + score_img + "'>");
+  $(".scores").prepend("<h1>You are a " + top_key + " girl!</h1>");
+  var link = document.URL;
+  $(".scores").append("<ul class='social'><li><a class=\"fb-share\" href='http://www.facebook.com/sharer.php?u=" + link + "' target='_blank'><i class='fa fa-facebook-square'></i></a></li><li><a class=\"twitter-share\" href='http://twitter.com/home?status=I am a " + top_key + " according to this Fashion Girl quiz " + link + " via @racked target='_blank'><i class='fa fa-twitter-square'></i></a></li><li><a class=\"gplus-share\" href='https://plus.google.com/share?url=" + link + "' target='_blank'><i class='fa fa-google-plus-square'></i></a></li></ul>")
 }
-
-// http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/90s.jpg
-// http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/Blogger.jpg
-// http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/grn_juice.jpg
-// http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/newcity.jpg
 
 
 $(document).ready(function(){

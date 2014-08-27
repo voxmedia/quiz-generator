@@ -1,5 +1,6 @@
 $font-stack: Georgia, serif;
 $question-font: "KnockoutHTF29-JuniorLiteweight", "Arial Narrow", serif;
+$body-font: "Helvetica";
 $red: #C92025;
 
 // Container for generated quiz
@@ -42,7 +43,8 @@ ol.answers {
     border: 1px solid #d3d3d3;
     margin: 0 10px 10px 0;
     padding: 10px;
-    max-width: 200px;
+    width: 200px;
+    height: 200px;
     &:before {
       display: none;
     }
@@ -50,8 +52,8 @@ ol.answers {
       background-color: #ececec;
     }
     .img-wrapper {
-      height: 160px;
-      width: 160px;
+      height: 180px;
+      width: 100%;
       overflow:hidden;
       margin-right: 0 !important;
     }
@@ -62,8 +64,6 @@ ol.answers {
       font-family: $question-font;
       font-weight: bold;
       font-size: 18px;
-      width: 200px;
-      heigt: 30px;
     }
   }
 }
@@ -146,4 +146,52 @@ ol.answers {
 // Flowchart selection
 .flowchart-selected {
   background-color: $red !important;
+}
+
+
+.scorecard {
+  display:block;
+  overflow:hidden;
+  h1 {
+    font-family: $question-font;
+  }
+  .scores {
+    font-family: $body-font;
+    float:left;
+    text-align: left;
+  }
+
+  .scores-img {
+    float:left;
+    width: 25%;
+    height: 230px;
+    overflow:hidden;
+    img {
+      width: 100%;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+    }
+  }
+
+  ul.social {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    li {
+      display: inline-block;
+      a {
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      i {
+        font-size: 26px;
+        color: #292929;
+      }
+      i:hover, i:active {
+        color: #292929;
+      }
+    }
+  }
 }
