@@ -35,27 +35,35 @@ ol.answers {
     opacity: 1;
   }
   > li {
-    min-height: 250px;
     font-family: $font-stack;
     overflow:hidden;
     display: inline-block;
     text-align: left;
     border: 1px solid #d3d3d3;
     margin: 0 10px 10px 0;
-    padding: 20px;
+    padding: 10px;
+    max-width: 200px;
     &:before {
       display: none;
     }
     &:hover {
       background-color: #ececec;
     }
-    img {
+    .img-wrapper {
+      height: 160px;
       width: 160px;
+      overflow:hidden;
+      margin-right: 0 !important;
+    }
+    img {
+      width: 100%;
     }
     p {
       font-family: $question-font;
       font-weight: bold;
       font-size: 18px;
+      width: 200px;
+      heigt: 30px;
     }
   }
 }

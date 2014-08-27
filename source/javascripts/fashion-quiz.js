@@ -24,12 +24,12 @@ function buildQuiz(input) {
   $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='qq-question'><div class='question'>" + input[currentQuestion].question + "</div></div>" +
       "<ol class='answers'></ol>");
   $(".answers").append(
-    "<li id='option-a'data-score='" + input[currentQuestion].avalue + "'>" + '<img src="' + input[currentQuestion].aimage + '"><p>' + input[currentQuestion].a + "</p></li>" +
-    "<li id='option-b' data-score='" + input[currentQuestion].bvalue + "'>" + '<img src="' + input[currentQuestion].bimage + '"><p>' + input[currentQuestion].b + "</p></li>" +
-    "<li id='option-c' data-score='" + input[currentQuestion].cvalue +"'>" + '<img src="' + input[currentQuestion].cimage + '"><p>' + input[currentQuestion].c + "</p></li>" +
-    "<li id='option-d' data-score='" + input[currentQuestion].dvalue +"'>" + '<img src="' + input[currentQuestion].dimage + '"><p>' + input[currentQuestion].d + "</p></li>" +
-    "<li id='option-e'data-score='" + input[currentQuestion].evalue + "'>" + '<img src="' + input[currentQuestion].eimage + '"><p>' + input[currentQuestion].e + "</p></li>" +
-    "<li id='option-f'data-score='" + input[currentQuestion].fvalue + "'>" + '<img src="' + input[currentQuestion].fimage + '"><p>' + input[currentQuestion].f + "</p></li>"
+    "<li id='option-a'data-score='" + input[currentQuestion].avalue + "'>" + '<div class="img-wrapper"><img src="' + input[currentQuestion].aimage + '"></div><p>' + input[currentQuestion].a + "</p></li>" +
+    "<li id='option-b' data-score='" + input[currentQuestion].bvalue + "'>" + '<div class="img-wrapper"><img src="' + input[currentQuestion].bimage + '"></div><p>' + input[currentQuestion].b + "</p></li>" +
+    "<li id='option-c' data-score='" + input[currentQuestion].cvalue +"'>" + '<div class="img-wrapper"><img src="' + input[currentQuestion].cimage + '"><p>' + input[currentQuestion].c + "</div></p></li>" +
+    "<li id='option-d' data-score='" + input[currentQuestion].dvalue +"'>" + '<div class="img-wrapper"><img src="' + input[currentQuestion].dimage + '"></div><p>' + input[currentQuestion].d + "</p></li>" +
+    "<li id='option-e'data-score='" + input[currentQuestion].evalue + "'>" + '<div class="img-wrapper"><img src="' + input[currentQuestion].eimage + '"></div><p>' + input[currentQuestion].e + "</p></li>" +
+    "<li id='option-f'data-score='" + input[currentQuestion].fvalue + "'>" + '<div class="img-wrapper"><img src="' + input[currentQuestion].fimage + '"></div><p>' + input[currentQuestion].f + "</p></li>"
   );
   selectAnswer();
   if (currentQuestion != (input.length-1)) {
@@ -84,11 +84,18 @@ function checkAnswer() {
 
 function finalScore() {
   checkAnswer();
-  $('.quiz-container').html("<div class='scorecard'><h1>This is your score</h1></div>");
+  var top_score = scores[0].value;
+  var top_key = scores[0].key;
+  $(".quiz-container").html("<div class='scores'><h3>Breakdown</h3></div>");
   for (var i = 0; i < scores.length; i++) {
+    if (scores[i].value > top_score) {
+      top_score = scores[i].value;
+      top_key = scores[i].key;
+    }
     var percentage = (scores[i].value / (currentQuestion + 1)) * 100;
-    $(".quiz-container").append("<p>You are " + percentage + "% " + scores[i].key + "</p>");
+    $(".quiz-container").append("<p>"+ scores[i].key + ": " + percentage.toFixed(0) + "%</p>");
   }
+  $(".quiz-container").prepend("<h1>You are a " + top_key + " girl!</h1>");
 }
 
 // http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/90s.jpg
