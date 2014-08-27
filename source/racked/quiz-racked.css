@@ -1,0 +1,118 @@
+/* line 6, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.quiz-container {
+  font-family: Georgia, serif;
+  color: #4C4E4D;
+  padding-top: 20px;
+  border-top: 3px solid #c92025; }
+
+/* line 14, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.qq-question {
+  font-family: "KnockoutHTF29-JuniorLiteweight", "Arial Narrow", serif;
+  font-weight: bold;
+  color: #4C4E4D;
+  font-size: 1.5em;
+  margin: 0 0 30px 0;
+  text-align: left; }
+
+/* line 24, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.qq-description {
+  font-family: Georgia, serif;
+  text-align: left; }
+
+/* line 31, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+ol.answers .dim {
+  opacity: 0.3; }
+/* line 34, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+ol.answers .selected {
+  opacity: 1; }
+/* line 37, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+ol.answers > li {
+  font-family: Georgia, serif;
+  overflow: hidden;
+  display: inline-block;
+  text-align: left;
+  border: 1px solid #d3d3d3;
+  margin: 0 10px 10px 0;
+  padding: 20px; }
+  /* line 45, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+  ol.answers > li:before {
+    display: none; }
+  /* line 48, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+  ol.answers > li:hover {
+    background-color: #ececec; }
+  /* line 51, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+  ol.answers > li img {
+    width: 200px;
+    height: 150px; }
+  /* line 55, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+  ol.answers > li p {
+    font-family: "KnockoutHTF29-JuniorLiteweight", "Arial Narrow", serif;
+    font-weight: bold;
+    font-size: 18px; }
+
+/* line 64, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.qq-button {
+  font-family: Georgia, serif;
+  color: #FFFFFF;
+  text-transform: none;
+  background-color: #4C4E4D; }
+  /* line 69, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+  .qq-button:hover {
+    background-color: #c92025 !important; }
+
+/* line 75, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.selected {
+  background-color: #ececec;
+  color: #4C4E4D; }
+
+/* line 81, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.submit-highlight {
+  background-color: #6F7170; }
+
+/* line 86, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.answer p:first-child {
+  font-family: "KnockoutHTF29-JuniorLiteweight", "Arial Narrow", serif;
+  border-top: 1px solid #4c4e4d !important; }
+
+/* line 93, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+#social-media ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  /* line 98, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+  #social-media ul li {
+    display: inline-block; }
+    /* line 101, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+    #social-media ul li:before {
+      background-color: transparent !important; }
+    /* line 106, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+    #social-media ul li a {
+      text-decoration: none; }
+      /* line 108, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+      #social-media ul li a svg {
+        fill: #4c4e4d; }
+        /* line 110, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+        #social-media ul li a svg:hover {
+          fill: #fff200; }
+        /* line 113, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+        #social-media ul li a svg path:hover {
+          fill: #ffffff; }
+
+/* line 123, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.scorecard p:nth-child(2) {
+  font-family: "KnockoutHTF29-JuniorLiteweight", "Arial Narrow", serif; }
+
+/* line 128, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.answer a {
+  color: #6d98a8;
+  text-decoration: none;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased; }
+  /* line 133, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+  .answer a:hover {
+    text-decoration: underline; }
+
+/* line 139, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-racked.css.scss */
+.flowchart-selected {
+  background-color: #c92025 !important; }

@@ -21,7 +21,7 @@ function getSpreadSheet() {
 function buildQuiz(input) {
   qnumber = currentQuestion + 1;
   anumber = qnumber;
-  $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='qq-question'><div class='question'>" + input[currentQuestion].question + "</div></div>" +
+  $(".quiz-container").html("<div class='progress'>Question " + qnumber + "&nbsp;of&nbsp;" + input.length + "</div><div class='qq-question'><div class='qq-description'>" + input[currentQuestion].description + "</div><br><div class='question'>" + input[currentQuestion].question + "</div></div>" +
       "<ol class='answers'></ol>");
   $(".answers").append(
     "<li id='option-a'data-score='" + input[currentQuestion].avalue + "'>" + '<img src="' + input[currentQuestion].aimage + '"><p>' + input[currentQuestion].a + "</p></li>" +
@@ -89,12 +89,6 @@ function finalScore() {
     $(".quiz-container").append("<p>" + scores[i].key + ": " + scores[i].value + "</p>");
   }
 }
-
-// http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/90s.jpg
-// http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/Blogger.jpg
-// http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/grn_juice.jpg
-// http://apps.voxmedia.com/graphics/racked-fashion-week-quiz/newcity.jpg
-
 
 $(document).ready(function(){
   getSpreadSheet();

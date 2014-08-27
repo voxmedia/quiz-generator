@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>Test Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- stylesheets y fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="fashion-quiz.css">
+  <link rel="stylesheet" type="text/css" href="quiz-racked.css">
+</head>
+<body>
+  <div class="container" style="height: 2000px; background-color: #ececec;">
+<h1>Demo</h1>
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+<script src='tabletop.js'></script>
+<div class='quiz-container'></div><script type='text/javascript'>window.jQuery || document.write('<script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'><\/script>');</script><script type='text/javascript'>var input = [{"slug":"Start","text":"Are you eating something?","connectsto":"utensil, notsandwich","connectstext":"Yes, No","rowNumber":1},{"slug":"utensil","text":"Are you using utensils?","connectsto":"openfaced,sandwich","connectstext":"Yes, No","rowNumber":2},{"slug":"openfaced","text":"Is it an open-faced sandwich?","connectsto":"eatsandwich,notsandwich","connectstext":"Yes, No","rowNumber":3},{"slug":"sandwich","text":"Is it a sandwich?","connectsto":"eatsandwich,others","connectstext":"Yes, No","rowNumber":4},{"slug":"eatsandwich","text":"You are eating a sandwich.","connectsto":"End","connectstext":"The End","rowNumber":5},{"slug":"probs","text":"You are probably eating a sanwich.","connectsto":"End","connectstext":"The End","rowNumber":6},{"slug":"others","text":"Is it a......","connectsto":"law, law, law, law, law, law, law","connectstext":"Hamburger, Burrito, Wrap, Gyro, Pita, Melt, Hotdog","rowNumber":7},{"slug":"law","text":"According to the New York State Department of Taxation and Finance, you are eating a sandwich.","connectsto":"End","connectstext":"The End","rowNumber":8},{"slug":"notsandwich","text":"You are not eating a sandwich.","connectsto":"End","connectstext":"The End","rowNumber":9},{"slug":"End","text":"Had fun? Do it again or share it with your friends!","connectsto":"","connectstext":"","rowNumber":10}]; var pubStylesheet = 'http://cdn0.sbnation.com/features/quiz-generator/quiz-vox.css'; var pub = 'vox'; </script><script src='fashion-quiz.js'></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* line 11, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.quiz-container {
+  text-align: center;
+  background-color: #ffffff;
+  margin: 0% auto;
+  width: 100%;
+  max-width: 770px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 60px;
+  padding-top: 20px; }
+
+/* line 24, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.qq-question {
+  font-size: 1.17em;
+  max-width: 80%;
+  margin: 0% auto;
+  margin-top: 20px !important;
+  line-height: 1.2; }
+
+/* line 33, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.qq-description {
+  font-size: 0.6em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 1.5;
+  text-transform: none;
+  font-style: normal; }
+
+/* line 44, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.question {
+  padding-top: 10px; }
+
+/* line 49, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.progress {
+  font-size: 11px;
+  text-align: right;
+  position: relative;
+  right: 30px; }
+
+/* line 57, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+ol.answers {
+  font-size: 0.9em;
+  list-style-type: none;
+  cursor: pointer;
+  counter-reset: li-counter;
+  position: relative;
+  margin-bottom: 50px;
+  padding: 0px; }
+  /* line 67, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+  ol.answers > li {
+    -o-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    text-align: left;
+    margin: 20px 0px; }
+    /* line 68, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+    ol.answers > li:before {
+      font-size: 1em;
+      text-align: center;
+      cursor: pointer;
+      content: counter(li-counter);
+      counter-increment: li-counter;
+      display: inline-block;
+      width: 30px;
+      margin-right: 10px;
+      padding: 5px 0px 5px 0px; }
+
+/* line 86, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.qq-button {
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: .9em;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-block;
+  cursor: pointer;
+  width: 160px;
+  margin: 2px 5px;
+  padding: .7em .7em .6em;
+  border: 0; }
+
+/* line 99, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.next:hover {
+  background: transparent; }
+
+/* line 104, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.selected {
+  background-color: #dfdfe0;
+  font-weight: bold; }
+
+/* line 110, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.scorecard {
+  display: block !important; }
+
+/* line 114, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.score {
+  font-size: .8em;
+  float: right;
+  padding-right: 7%; }
+
+/* line 121, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+#social-media ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px; }
+  /* line 127, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+  #social-media ul li {
+    display: inline-block; }
+    /* line 129, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+    #social-media ul li a {
+      text-decoration: none; }
+      /* line 131, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+      #social-media ul li a svg {
+        height: 2em;
+        width: 3.4em;
+        margin-right: 1em; }
+
+/* line 141, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.answer {
+  margin: 0% auto;
+  width: 90%;
+  max-width: 550px;
+  margin-top: 20px !important; }
+  /* line 147, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+  .answer p:first-child {
+    font-weight: bold;
+    font-size: 1.2em;
+    display: inline-block;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    border-top: 1px solid #000000; }
+  /* line 156, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+  .answer p:nth-child(2) {
+    margin: 0% auto;
+    display: block;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 20px; }
+
+/* line 167, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.answer > p {
+  margin: 0px 0px 20px 0px !important; }
+
+/* line 173, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.scorecard p:nth-child(1) {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1em !important;
+  display: inline-block;
+  margin-top: 45px; }
+/* line 180, /Users/rebeccalai/repos/quiz-generator/source/stylesheets/quiz-fashion.css.scss */
+.scorecard p:nth-child(2) {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 40px;
+  margin-top: 5px; }
