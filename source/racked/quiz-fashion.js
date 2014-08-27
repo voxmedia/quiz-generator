@@ -122,5 +122,8 @@ function finalScore() {
 
 
 $(document).ready(function(){
-  getSpreadSheet();
+  $('head').append('<link rel="stylesheet" href="quiz-fashion.css" type="text/css" />');
+  $('head').append('<link rel="stylesheet" href="quiz-racked.css" type="text/css" />');
+
+  buildQuiz(input);
 });
