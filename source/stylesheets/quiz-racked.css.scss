@@ -35,6 +35,7 @@ ol.answers {
     opacity: 1;
   }
   > li {
+    min-height: 250px;
     font-family: $font-stack;
     overflow:hidden;
     display: inline-block;
@@ -49,8 +50,7 @@ ol.answers {
       background-color: #ececec;
     }
     img {
-      width: 200px;
-      height: 150px;
+      width: 160px;
     }
     p {
       font-family: $question-font;

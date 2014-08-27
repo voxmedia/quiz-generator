@@ -103,9 +103,6 @@ p {
   width: 70%;
   margin: 0% auto;
   margin-bottom: 15px;
-  &:last-child {
-    margin-bottom: 70px;
-  }
 }
 
 // Options for different verticals' stylesheets
@@ -121,7 +118,6 @@ form {
 // Links style
 a {
   text-decoration: none;
-  color: $orange;
   -o-transition: .1s;
   -ms-transition: .1s;
   -moz-transition: .1s;

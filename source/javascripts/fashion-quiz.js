@@ -75,10 +75,10 @@ function checkAnswer() {
         value: 1
       })
     }
-  }
-  if (currentQuestion != (input.length-1)) {
-    currentQuestion++;
-    buildQuiz(input);
+    if (currentQuestion != (input.length-1)) {
+      currentQuestion++;
+      buildQuiz(input);
+    }
   }
 }
 
@@ -86,7 +86,8 @@ function finalScore() {
   checkAnswer();
   $('.quiz-container').html("<div class='scorecard'><h1>This is your score</h1></div>");
   for (var i = 0; i < scores.length; i++) {
-    $(".quiz-container").append("<p>" + scores[i].key + ": " + scores[i].value + "</p>");
+    var percentage = (scores[i].value / (currentQuestion + 1)) * 100;
+    $(".quiz-container").append("<p>You are " + percentage + "% " + scores[i].key + "</p>");
   }
 }
 

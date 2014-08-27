@@ -24,6 +24,7 @@ $bright-red: #FB4834;
 // Description for each question
 .qq-description {
   padding: 20px 15px 0px 15px;
+  font-family: Helvetica, sans-serif;
 }
 
 // Answer options for each question
@@ -49,7 +50,7 @@ ol.answers > li {
 
 // Buttons
 .qq-button {
-  font-family: $font-stack;
+  font-family: $font-stack !important;
   font-weight: 400;
   font-size: 1.02em;
   color: #FFFFFF;
